@@ -108,7 +108,7 @@ export interface IERC721 extends IERC165 {
    * - `from` cannot be the zero address.
    * - `to` cannot be the zero address.
    * - `tokenId` token must exist and be owned by `from`.
-   * - If the caller is not `from`, it must be approved to move this token by either {@link approve} or {@link setApprovalForAll}.
+   * - If the caller is not `from`, it must be approved to move this token by either {@approve} or {@link setApprovalForAll}.
    * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
    *
    * Emits a {Transfer} event.
