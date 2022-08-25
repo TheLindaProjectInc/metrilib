@@ -5,6 +5,7 @@ import ContractResponse from '../mrx/ContractResponse';
 import { TransactionReceipt } from '../mrx';
 import { MetrixRPCNode } from '../lib/MetrixRPC/MetrixRPC';
 import { NetworkType } from '../types/NetworkType';
+import { RPCEventLogs } from '../mrx/interface/RPCEventLogs';
 
 const AddressZero = ethers.constants.AddressZero.replace('0x', '');
 
@@ -156,5 +157,23 @@ export default class RPCProvider implements Provider {
       return bal;
     }
     return BigInt(0);
+  }
+  /**
+   * Get logs from a contract
+   *
+   * @param {string} contract transaction object
+   * @return {Promise<RPCEventLogs>} an {@link RPCEventLogs} object
+   *
+   */
+  async getEventLogs(contract: string): Promise<RPCEventLogs> {
+    const height = await this.mrpc.promiseGetBlockCount();
+    const logs: RPCEventLogs = await this.mrpc.promiseSearchLogs(
+      height - 10000,
+      -1,
+      contract,
+      undefined,
+      1
+    );
+    return logs;
   }
 }

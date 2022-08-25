@@ -8,9 +8,21 @@ import { IERC20Metadata } from './interface/IERC20Metadata';
 import { IERC165 } from './interface/IERC165';
 import { IERC721 } from './interface/IERC721';
 import { IERC721Enumerable } from './interface/IERC721Enumerable';
+import { APIEventLogs } from './interface/APIEventLogs';
+import { APILog } from './interface/APILog';
+import { CreatedContract } from './interface/CreatedContract';
+import { EVMLog } from './interface/EVMLog';
+import { RPCEventLogs } from './interface/RPCEventLogs';
+import { RPCLog } from './interface/RPCLog';
+import { EventLogs } from './type/EventLogs';
 
 export {
+  APIEventLogs,
+  APILog,
+  CreatedContract,
   ContractResponse,
+  EVMLog,
+  EventLogs,
   MetrixContract,
   TransactionReceipt,
   Transaction,
@@ -19,5 +31,7 @@ export {
   IERC20Metadata,
   IERC165,
   IERC721,
-  IERC721Enumerable
+  IERC721Enumerable,
+  RPCEventLogs,
+  RPCLog
 };
