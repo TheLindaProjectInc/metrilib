@@ -1,9 +1,21 @@
 import { Result } from 'ethers/lib/utils';
 import { TransactionReceipt } from '../mrx';
+import { APIEventLogs } from '../mrx/interface/APIEventLogs';
+import { RPCEventLogs } from '../mrx/interface/RPCEventLogs';
+import { EventLogs } from '../mrx/type/EventLogs';
 import { NetworkType } from '../types/NetworkType';
 
 export default interface Provider {
   network: NetworkType;
+
+  /**
+   * Get receipts from a transaction
+   *
+   * @param {string} contract transaction object
+   * @return {Promise<APIEventLogs | RPCEventLogs>} an {@link EventLogs} object
+   *
+   */
+  getEventLogs(contract: string): Promise<APIEventLogs | RPCEventLogs>;
 
   /**
    * Get receipts from a transaction

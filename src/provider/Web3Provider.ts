@@ -3,6 +3,8 @@ import { Result } from 'ethers/lib/utils';
 import Provider from './Provider';
 import { TransactionReceipt } from '../mrx';
 import { NetworkType } from '../types/NetworkType';
+import { APIEventLogs } from '../mrx/interface/APIEventLogs';
+import { APILog } from '../mrx/interface/APILog';
 
 export default class Web3Provider implements Provider {
   network: NetworkType;
@@ -200,5 +202,60 @@ export default class Web3Provider implements Provider {
     ).json();
     const bal = raw.balance ? BigInt(raw.balance) : BigInt(0);
     return bal;
+  }
+
+  /**
+   * Get receipts from a transaction
+   *
+   * @param {string} contract transaction object
+   * @return {Promise<APIEventLogs>} an {@link APIEventLogs} object
+   *
+   */
+  async getEventLogs(contract: string): Promise<APIEventLogs> {
+    let uri = '';
+    let logs: APILog[] = [];
+    switch (this.network) {
+      case 'MainNet':
+        uri = 'https://explorer.metrixcoin.com/api';
+        break;
+      case 'TestNet':
+        uri = 'https://testnet-explorer.metrixcoin.com/api';
+        break;
+      default:
+        break;
+    }
+    const raw: APIEventLogs = await (
+      await fetch(
+        `${uri}/searchlogs?contract=${
+          contract.startsWith('0x')
+            ? contract.slice(2).toLowerCase()
+            : contract.toLowerCase()
+        }&limit=100&offset=0`
+      )
+    ).json();
+    for (const r of raw.logs) {
+      logs.push(r);
+    }
+    const totalCount = raw.totalCount ? raw.totalCount : 0;
+    if (totalCount > 100) {
+      for (let i = 100; i < totalCount; i += 100) {
+        const raw = await (
+          await fetch(
+            `${uri}/searchlogs?contract=${
+              contract.startsWith('0x')
+                ? contract.slice(2).toLowerCase()
+                : contract.toLowerCase()
+            }&limit=100&offset=${i * 100}`
+          )
+        ).json();
+        for (const r of raw.logs) {
+          logs.push(r);
+        }
+      }
+    }
+    return {
+      totalCount,
+      logs
+    };
   }
 }
