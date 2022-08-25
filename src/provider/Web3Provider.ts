@@ -213,7 +213,7 @@ export default class Web3Provider implements Provider {
    */
   async getEventLogs(contract: string): Promise<APIEventLogs> {
     let uri = '';
-    let logs: APILog[] = [];
+    const logs: APILog[] = [];
     switch (this.network) {
       case 'MainNet':
         uri = 'https://explorer.metrixcoin.com/api';

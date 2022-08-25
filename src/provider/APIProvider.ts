@@ -4,10 +4,8 @@ import { Result } from 'ethers/lib/utils';
 import Provider from './Provider';
 import { NetworkType } from '../types/NetworkType';
 import TransactionReceipt from '../mrx/TransactionReceipt';
-import { EventLogs } from '../mrx/type/EventLogs';
 import { APILog } from '../mrx/interface/APILog';
 import { APIEventLogs } from '../mrx/interface/APIEventLogs';
-import { RPCEventLogs } from '../mrx/interface/RPCEventLogs';
 
 export default class APIProvider implements Provider {
   network: NetworkType;
@@ -183,7 +181,7 @@ export default class APIProvider implements Provider {
    */
   async getEventLogs(contract: string): Promise<APIEventLogs> {
     let uri = '';
-    let logs: APILog[] = [];
+    const logs: APILog[] = [];
     switch (this.network) {
       case 'MainNet':
         uri = 'https://explorer.metrixcoin.com/api';

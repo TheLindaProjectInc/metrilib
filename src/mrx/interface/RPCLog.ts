@@ -17,6 +17,6 @@ export interface RPCLog {
   stateRoot: string;
   utxoRoot: string;
   createdContracts: CreatedContract[];
-  destructedContracts: any[];
+  destructedContracts: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   log: EVMLog[];
 }
