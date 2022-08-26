@@ -1,5 +1,6 @@
 import { Result } from 'ethers/lib/utils';
 import Provider from '../provider/Provider';
+import { EventLogs } from './type/EventLogs';
 
 export default class MetrixContract {
   address: string;
@@ -85,5 +86,15 @@ export default class MetrixContract {
       gasPrice,
       this.abi
     );
+  }
+
+  /**
+   * Get receipts from a transaction
+   *
+   * @return {Promise<EventLogs>} an {@link EventLogs} object
+   *
+   */
+  getEventLogs(): Promise<EventLogs> {
+    return this.provider.getEventLogs(this.address);
   }
 }
