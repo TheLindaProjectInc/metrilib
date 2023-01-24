@@ -1,6 +1,6 @@
 import { equal } from 'assert';
-import { MRC20 } from '../';
-import { APIProvider } from '../../provider';
+import { MRC20 } from '../../';
+import { APIProvider } from '../../../provider';
 
 describe('MRC20 tests', () => {
   const network = 'MainNet';

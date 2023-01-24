@@ -1,7 +1,7 @@
 import { equal } from 'assert';
 import { ethers } from 'ethers';
-import { MRC721 } from '../';
-import { APIProvider } from '../../provider';
+import { MRC721 } from '../../';
+import { APIProvider } from '../../../provider';
 
 describe('MRC721 tests', () => {
   const network = 'MainNet';

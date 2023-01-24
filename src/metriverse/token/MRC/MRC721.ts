@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
-import ABI from '../../abi';
-import { IERC721Enumerable, MetrixContract, Transaction } from '../../mrx';
-import Provider from '../../provider/Provider';
+import ABI from '../../../abi';
+import { IERC721Enumerable, MetrixContract, Transaction } from '../../../mrx';
+import Provider from '../../../provider/Provider';
 
 export default class MRC721
   extends MetrixContract
