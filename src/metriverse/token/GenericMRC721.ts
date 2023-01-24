@@ -35,7 +35,8 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
   ): Promise<Transaction> {
     const tx = await this.send('mintUnique(address,uint256,uint16)', [
       receiver,
-      `0x${tokenId.toString(16)}`
+      `0x${tokenId.toString(16)}`,
+      `0x${batchSize.toString(16)}`
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
