@@ -34,7 +34,10 @@ export {
   MetrixRawTx,
   MetrixSigHashType,
   MetrixSignRawTx,
-  MetrixRPCNode
+  MetrixRPCNode,
+  StandardOutput,
+  DataOutput,
+  ContractOutput
 };
 
 interface StandardOutput {

@@ -1,8 +1,8 @@
-import ABI from '../../abi';
-import { IERC20Metadata } from '../../mrx/interface/IERC20Metadata';
-import MetrixContract from '../../mrx/MetrixContract';
-import { Transaction } from '../../mrx/Transaction';
-import Provider from '../../provider/Provider';
+import ABI from '../../../abi';
+import { IERC20Metadata } from '../../../mrx/interface/IERC20Metadata';
+import MetrixContract from '../../../mrx/MetrixContract';
+import { Transaction } from '../../../mrx/Transaction';
+import Provider from '../../../provider/Provider';
 
 export default class MRC20 extends MetrixContract implements IERC20Metadata {
   constructor(address: string, provider: Provider) {
