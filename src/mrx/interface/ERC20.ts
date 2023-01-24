@@ -13,7 +13,7 @@ export interface ERC20 extends IERC20Metadata {
    * This is an alternative to {@link approve} that can be used as a mitigation for
    * problems described in {@link approve}.
    *
-   * Emits an {Approval} event indicating the updated allowance.
+   * Emits an Approval event indicating the updated allowance.
    *
    * Requirements:
    *
@@ -29,7 +29,7 @@ export interface ERC20 extends IERC20Metadata {
    * This is an alternative to {@link approve} that can be used as a mitigation for
    * problems described in {@link approve}.
    *
-   * Emits an {Approval} event indicating the updated allowance.
+   * Emits an Approval event indicating the updated allowance.
    *
    * Requirements:
    *

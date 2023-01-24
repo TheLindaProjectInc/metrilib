@@ -52,6 +52,19 @@ export default class BaseSale extends MetrixContract {
     assetAddress: string,
     tokenId: bigint
   ): Promise<[tokenId: bigint, price: bigint, beneficiaryAddress: string]> {
+    const sale = await this.call(`getSale(address, uint256)`, [
+      assetAddress,
+      `0x${tokenId.toString(16)}`
+    ]);
+    if (sale && sale.length >= 3) {
+      const tup: [tokenId: bigint, price: bigint, beneficiaryAddress: string] =
+        [
+          BigInt(sale[0].toString()),
+          BigInt(sale[1].toString()),
+          sale[2].toString()
+        ];
+      return tup;
+    }
     return [BigInt(0), BigInt(0), ethers.constants.AddressZero];
   }
 

@@ -20,7 +20,7 @@ export interface IERC20 {
   /**
    * Sets `amount` as the allowance of `spender` over the caller's tokens.
    *
-   * Emits an {Approval} event.
+   * Emits an Approval event.
    *
    * @param spender
    * @param amount
@@ -41,7 +41,7 @@ export interface IERC20 {
   /**
    * Moves `amount` tokens from the caller's account to `recipient`.
    *
-   * Emits a {Transfer} event.
+   * Emits a Transfer event.
    *
    * @param recipient
    * @param amount
@@ -53,7 +53,7 @@ export interface IERC20 {
    * allowance mechanism. `amount` is then deducted from the caller's
    * allowance.
    *
-   * Emits a {Transfer} event.
+   * Emits a Transfer event.
    *
    * @param sender
    * @param recipient

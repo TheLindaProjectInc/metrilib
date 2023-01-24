@@ -88,6 +88,30 @@ export default class SimpleAuction extends MetrixContract {
       beneficiaryAddress: string
     ]
   > {
+    const auction = await this.call(`getSale(address, uint256)`, [
+      assetAddress,
+      `0x${tokenId.toString(16)}`
+    ]);
+    if (auction && auction.length >= 7) {
+      const tup: [
+        tokenId: bigint,
+        winningBid: bigint,
+        minimumBid: bigint,
+        biddingTime: bigint,
+        startTime: bigint,
+        winningBidder: string,
+        beneficiaryAddress: string
+      ] = [
+        BigInt(auction[0].toString()),
+        BigInt(auction[1].toString()),
+        BigInt(auction[2].toString()),
+        BigInt(auction[3].toString()),
+        BigInt(auction[4].toString()),
+        auction[5].toString(),
+        auction[6].toString()
+      ];
+      return tup;
+    }
     return [
       BigInt(0),
       BigInt(0),
