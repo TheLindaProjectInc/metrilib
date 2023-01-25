@@ -8,7 +8,10 @@ export default class MRC721AuctionController extends MetrixContract {
   constructor(address: string, provider: Provider) {
     super(address, provider, ABI.MRC721AuctionController);
   }
-
+  /**
+   * Get the contract owner
+   * @returns {Promise<string>} the EVM style address of the owner of this contract
+   */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
     return o ? o.toString() : ethers.constants.AddressZero;
