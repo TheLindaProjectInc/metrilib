@@ -1,3 +1,6 @@
 export default interface Deployment {
-  MetriVerseCore: string;
+  Migrations: string;
+  MetriverseCore: string;
+  BurnableMRC721Factory: string;
+  MRC721Factory: string;
 }
