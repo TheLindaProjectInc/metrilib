@@ -25,7 +25,7 @@ export interface IGenericMRC721 extends IERC721Enumerable {
    * Batch mint new MRC721 tokens
    * @param receiver the EVM style address of the receiver
    * @param tokenId the uin256 id for the token
-   * @param batchSize the uint16 size of the batch
+   * @param batchSize the uint8 size of the batch
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   mintUniqueBatch(

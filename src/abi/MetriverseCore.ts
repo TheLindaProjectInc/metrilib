@@ -35,6 +35,31 @@ export const MetriverseCore = [
       {
         indexed: true,
         internalType: 'address',
+        name: 'contractAddress',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'creator',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'factory',
+        type: 'address'
+      }
+    ],
+    name: 'MRC721Created',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
         name: 'previousOwner',
         type: 'address'
       },
