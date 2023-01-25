@@ -85,14 +85,15 @@ export default class SimpleAuction extends MetrixContract {
       biddingTime: bigint,
       startTime: bigint,
       winningBidder: string,
-      beneficiaryAddress: string
+      beneficiaryAddress: string,
+      ended: boolean
     ]
   > {
     const auction = await this.call(`getSale(address, uint256)`, [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
-    if (auction && auction.length >= 7) {
+    if (auction && auction.length >= 9) {
       const tup: [
         tokenId: bigint,
         winningBid: bigint,
@@ -100,7 +101,8 @@ export default class SimpleAuction extends MetrixContract {
         biddingTime: bigint,
         startTime: bigint,
         winningBidder: string,
-        beneficiaryAddress: string
+        beneficiaryAddress: string,
+        ended: boolean
       ] = [
         BigInt(auction[0].toString()),
         BigInt(auction[1].toString()),
@@ -108,7 +110,8 @@ export default class SimpleAuction extends MetrixContract {
         BigInt(auction[3].toString()),
         BigInt(auction[4].toString()),
         auction[5].toString(),
-        auction[6].toString()
+        auction[6].toString(),
+        auction[7].toString() === 'true'
       ];
       return tup;
     }
@@ -119,7 +122,8 @@ export default class SimpleAuction extends MetrixContract {
       BigInt(0),
       BigInt(0),
       ethers.constants.AddressZero,
-      ethers.constants.AddressZero
+      ethers.constants.AddressZero,
+      false
     ];
   }
 

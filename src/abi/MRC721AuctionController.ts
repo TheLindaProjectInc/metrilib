@@ -32,6 +32,19 @@ export const MRC721AuctionController = [
   { stateMutability: 'payable', type: 'fallback' },
   {
     inputs: [],
+    name: 'auction',
+    outputs: [
+      {
+        internalType: 'contract SimpleAuction',
+        name: '',
+        type: 'address'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [],
     name: 'owner',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
@@ -50,19 +63,6 @@ export const MRC721AuctionController = [
     outputs: [
       {
         internalType: 'contract BaseSale',
-        name: '',
-        type: 'address'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [],
-    name: 'simpleAuction',
-    outputs: [
-      {
-        internalType: 'contract SimpleAuction',
         name: '',
         type: 'address'
       }
