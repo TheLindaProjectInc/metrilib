@@ -220,13 +220,8 @@ export const GenericMRC721BurnableRoyalty = [
       },
       {
         internalType: 'uint256',
-        name: 'startId',
+        name: 'tokenId',
         type: 'uint256'
-      },
-      {
-        internalType: 'uint16',
-        name: 'batchSize',
-        type: 'uint16'
       }
     ],
     name: 'mintUnique',
@@ -243,9 +238,10 @@ export const GenericMRC721BurnableRoyalty = [
       },
       {
         internalType: 'uint256',
-        name: 'tokenId',
+        name: 'startId',
         type: 'uint256'
-      }
+      },
+      { internalType: 'uint8', name: 'batchSize', type: 'uint8' }
     ],
     name: 'mintUnique',
     outputs: [],

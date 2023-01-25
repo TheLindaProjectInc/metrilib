@@ -37,8 +37,8 @@ export default class MRC721AuctionController extends MetrixContract {
     return s ? s.toString() : ethers.constants.AddressZero;
   }
 
-  async simpleAuction(): Promise<string> {
-    const s = await this.call(`simpleAuction()`, []);
+  async auction(): Promise<string> {
+    const s = await this.call(`auction()`, []);
     return s ? s.toString() : ethers.constants.AddressZero;
   }
 }

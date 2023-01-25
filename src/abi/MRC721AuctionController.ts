@@ -29,6 +29,20 @@ export const MRC721AuctionController = [
     name: 'OwnershipTransferred',
     type: 'event'
   },
+  { stateMutability: 'payable', type: 'fallback' },
+  {
+    inputs: [],
+    name: 'auction',
+    outputs: [
+      {
+        internalType: 'contract SimpleAuction',
+        name: '',
+        type: 'address'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
   {
     inputs: [],
     name: 'owner',
@@ -57,19 +71,6 @@ export const MRC721AuctionController = [
     type: 'function'
   },
   {
-    inputs: [],
-    name: 'simpleAuction',
-    outputs: [
-      {
-        internalType: 'contract SimpleAuction',
-        name: '',
-        type: 'address'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
     inputs: [
       {
         internalType: 'address',
@@ -81,5 +82,6 @@ export const MRC721AuctionController = [
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function'
-  }
+  },
+  { stateMutability: 'payable', type: 'receive' }
 ];
