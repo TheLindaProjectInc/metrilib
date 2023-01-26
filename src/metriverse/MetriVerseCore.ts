@@ -21,7 +21,7 @@ export default class MetriverseCore extends MetrixContract {
   ): Promise<Transaction> {
     const tx = await this.send('approveToken(address,bool)', [
       assetAddress,
-      `${approved}`
+      approved
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -105,11 +105,14 @@ export default class MetriverseCore extends MetrixContract {
         name,
         symbol,
         baseURI,
-        `${burnable}`,
+        burnable,
         `0x${royalty.toString(16)}`,
         beneficiary,
         signature
-      ]
+      ],
+      '0',
+      2500000,
+      5000
     );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -261,7 +264,7 @@ export default class MetriverseCore extends MetrixContract {
       [
         info,
         `0x${royalty.toString(16)}`,
-        `${burnable}`,
+        burnable,
         `0x${nonce.toString(16)}`,
         beneficiary
       ]
@@ -358,7 +361,7 @@ export default class MetriverseCore extends MetrixContract {
   ): Promise<Transaction> {
     const tx = await this.send('setController(address,bool)', [
       operator,
-      `${controller}`
+      controller
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {

@@ -81,7 +81,7 @@ export default class RPCProvider implements Provider {
   async callContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined> {
     let result: utils.Result | undefined = undefined;
@@ -106,7 +106,7 @@ export default class RPCProvider implements Provider {
   async sendToContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     value = '0',
     gasLimit = 250000,
     gasPrice = 5000,

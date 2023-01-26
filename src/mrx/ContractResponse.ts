@@ -18,6 +18,6 @@ export default interface ContractResponse {
     bloom: string;
     createdContracts?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
     destructedContracts?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
-    log: [];
+    log: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   };
 }

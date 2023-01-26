@@ -133,7 +133,7 @@ export default class Web3Provider implements Provider {
   async sendToContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     value = '0',
     gasLimit = 250000,
     gasPrice = 5000,

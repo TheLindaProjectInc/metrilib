@@ -40,11 +40,8 @@ export default class MetrixContract {
    * @return {utils.Result} see ethers.utils.Result
    *
    * @public
-   */
-  public async call(
-    method: string,
-    args: string[]
-  ): Promise<Result | undefined> {
+   */ //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public async call(method: string, args: any[]): Promise<Result | undefined> {
     return await this.provider.callContract(
       this.address,
       method,
@@ -68,7 +65,7 @@ export default class MetrixContract {
    */
   public async send(
     method: string,
-    args: string[],
+    args: any[], //eslint-disable-line @typescript-eslint/no-explicit-any
     value: string | undefined = '0',
     gasLimit: number | undefined = 250000,
     gasPrice: number | undefined = 5000
