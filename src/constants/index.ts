@@ -2,9 +2,9 @@ import Deployment from '../interfaces/Deployment';
 import { contracts as MainNetv1 } from '../network/MainNet/0.0.1';
 import { contracts as MainNetv2 } from '../network/MainNet/0.0.2';
 import { contracts as MainNetv3 } from '../network/MainNet/0.0.3';
-import { contracts as TestNetv1 } from '../network/MainNet/0.0.1';
-import { contracts as TestNetv2 } from '../network/MainNet/0.0.2';
-import { contracts as TestNetv3 } from '../network/MainNet/0.0.3';
+import { contracts as TestNetv1 } from '../network/TestNet/0.0.1';
+import { contracts as TestNetv2 } from '../network/TestNet/0.0.2';
+import { contracts as TestNetv3 } from '../network/TestNet/0.0.3';
 
 export const CONTRACTS = {
   '0.0.1': {
