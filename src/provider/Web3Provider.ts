@@ -98,7 +98,7 @@ export default class Web3Provider implements Provider {
   async callContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined> {
     switch (this.network) {
