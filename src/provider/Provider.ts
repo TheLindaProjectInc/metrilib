@@ -34,7 +34,7 @@ export default interface Provider {
    *
    * @param {string} contract The contract address
    * @param {string} method The contract method to call
-   * @param {string[]} data The arguments
+   * @param {any[]} data The arguments
    * @param {any[]} abi The contract abi
    *
    * @return {Promise<Result | undefined>} see ethers.utils.Result
@@ -43,7 +43,7 @@ export default interface Provider {
   callContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined>;
 
@@ -52,7 +52,7 @@ export default interface Provider {
    *
    * @param {string} contract The contract address
    * @param {string} method The contract method to send to
-   * @param {string[]} data The arguments to use
+   * @param {any[]} data The arguments to use
    * @param {string} value The amount to send to the contract
    * @param {number} gasLimit The amount of gas units allowed
    * @param {number} gasPrice The satoshi price per gas
@@ -64,7 +64,7 @@ export default interface Provider {
   sendToContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     value: string,
     gasLimit: number,
     gasPrice: number,

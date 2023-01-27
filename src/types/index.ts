@@ -1,3 +1,4 @@
 import { NetworkType } from './NetworkType';
+import { Version } from './Version';
 
-export { NetworkType };
+export { NetworkType, Version };

@@ -1,4 +1,4 @@
-import Deployment from '../interfaces/Deployment';
+import Deployment from '../../interfaces/Deployment';
 
 export const contracts: Deployment = {
   Migrations: '0f21d8f6737b90fdd4f14ec6201a1f9d92ec41c2',

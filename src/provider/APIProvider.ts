@@ -46,8 +46,8 @@ export default class APIProvider implements Provider {
 
   async getTxReceipts(
     tx: { txid: string; sender: string; hash160: string },
-    abi: any[], // eslint-disable-line
-    contract?: string // eslint-disable-line @typescript-eslint/no-unused-vars
+    abi: any[], //eslint-disable-line
+    contract?: string // eslint-disable-line
   ) {
     const receipts: TransactionReceipt[] = [];
     try {
@@ -97,7 +97,7 @@ export default class APIProvider implements Provider {
   async callContract(
     contract: string,
     method: string,
-    data: string[],
+    data: any[], //eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined> {
     const iface = new ethers.utils.Interface(abi);
@@ -137,7 +137,7 @@ export default class APIProvider implements Provider {
   async sendToContract(
     contract: string, // eslint-disable-line
     method: string, // eslint-disable-line
-    data: string[], // eslint-disable-line
+    data: any[], // eslint-disable-line
     value: string, // eslint-disable-line
     gasLimit: number, // eslint-disable-line
     gasPrice: number, // eslint-disable-line

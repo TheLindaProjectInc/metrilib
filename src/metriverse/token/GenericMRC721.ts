@@ -74,7 +74,7 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
   ): Promise<Transaction> {
     const tx = await this.send('setController(address,bool)', [
       operator,
-      `${controller}`
+      controller
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {

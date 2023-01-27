@@ -105,7 +105,7 @@ export default class MRC721
   ): Promise<Transaction> {
     const tx = await this.send('setApprovalForAll(address,bool)', [
       operator,
-      `${approved}`
+      approved
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {

@@ -21,7 +21,7 @@ export default class MetriverseCore extends MetrixContract {
   ): Promise<Transaction> {
     const tx = await this.send('approveToken(address,bool)', [
       assetAddress,
-      `${approved}`
+      approved
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -88,6 +88,7 @@ export default class MetriverseCore extends MetrixContract {
    * @param royalty the royalty of the token
    * @param beneficiary the inital royalty beneficiary
    * @param signature the signed message see {@link permissionSlip}
+   * @param gasLimit this 2500000 and 3500000
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async createMRC721(
@@ -97,7 +98,8 @@ export default class MetriverseCore extends MetrixContract {
     burnable: boolean,
     royalty: bigint,
     beneficiary: string,
-    signature: string
+    signature: string,
+    gasLimit: number | undefined = 2500000
   ): Promise<Transaction> {
     const tx = await this.send(
       'createMRC721(string,string,string,bool,uint96,address,bytes)',
@@ -105,11 +107,14 @@ export default class MetriverseCore extends MetrixContract {
         name,
         symbol,
         baseURI,
-        `${burnable}`,
+        burnable,
         `0x${royalty.toString(16)}`,
         beneficiary,
         signature
-      ]
+      ],
+      '0',
+      gasLimit,
+      5000
     );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -261,7 +266,7 @@ export default class MetriverseCore extends MetrixContract {
       [
         info,
         `0x${royalty.toString(16)}`,
-        `${burnable}`,
+        burnable,
         `0x${nonce.toString(16)}`,
         beneficiary
       ]
@@ -358,7 +363,7 @@ export default class MetriverseCore extends MetrixContract {
   ): Promise<Transaction> {
     const tx = await this.send('setController(address,bool)', [
       operator,
-      `${controller}`
+      controller
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {

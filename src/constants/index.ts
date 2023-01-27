@@ -1,8 +1,26 @@
 import Deployment from '../interfaces/Deployment';
-import { contracts as MainNet } from '../network/MainNet';
-import { contracts as TestNet } from '../network/TestNet';
+import { contracts as MainNetv1 } from '../network/MainNet/0.0.1';
+import { contracts as MainNetv2 } from '../network/MainNet/0.0.2';
+import { contracts as MainNetv3 } from '../network/MainNet/0.0.3';
+import { contracts as TestNetv1 } from '../network/TestNet/0.0.1';
+import { contracts as TestNetv2 } from '../network/TestNet/0.0.2';
+import { contracts as TestNetv3 } from '../network/TestNet/0.0.3';
 
-export const CONTRACTS: { MainNet: Deployment; TestNet: Deployment } = {
-  MainNet,
-  TestNet
+export const CONTRACTS = {
+  '0.0.1': {
+    MainNet: MainNetv1 as Deployment,
+    TestNet: TestNetv1 as Deployment
+  },
+  '0.0.2': {
+    MainNet: MainNetv2 as Deployment,
+    TestNet: TestNetv2 as Deployment
+  },
+  '0.0.3': {
+    MainNet: MainNetv3 as Deployment,
+    TestNet: TestNetv3 as Deployment
+  },
+  latest: {
+    MainNet: MainNetv3 as Deployment,
+    TestNet: TestNetv3 as Deployment
+  }
 };
