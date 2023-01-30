@@ -44,20 +44,22 @@ export default class MRC721
       : BigInt(0);
   }
 
-  async ownerOf(tokenId: string): Promise<string> {
-    const owner = await this.call(`ownerOf(uint256)`, [tokenId]);
+  async ownerOf(tokenId: bigint): Promise<string> {
+    const owner = await this.call(`ownerOf(uint256)`, [
+      `0x${tokenId.toString(16)}`
+    ]);
     return owner ? owner.toString() : ethers.constants.AddressZero;
   }
 
   async safeTransferFrom(
     from: string,
     to: string,
-    tokenId: string
+    tokenId: bigint
   ): Promise<Transaction> {
     const tx = await this.send('safeTransferFrom(address,address,uint256)', [
       from,
       to,
-      tokenId
+      `0x${tokenId.toString(16)}`
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -69,12 +71,12 @@ export default class MRC721
   async transferFrom(
     from: string,
     to: string,
-    tokenId: string
+    tokenId: bigint
   ): Promise<Transaction> {
     const tx = await this.send('transferFrom(address,address,uint256)', [
       from,
       to,
-      tokenId
+      `0x${tokenId.toString(16)}`
     ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -83,8 +85,11 @@ export default class MRC721
     };
   }
 
-  async approve(to: string, tokenId: string): Promise<Transaction> {
-    const tx = await this.send('approve(address,uint256)', [to, tokenId]);
+  async approve(to: string, tokenId: bigint): Promise<Transaction> {
+    const tx = await this.send('approve(address,uint256)', [
+      to,
+      `0x${tokenId.toString(16)}`
+    ]);
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,
@@ -92,9 +97,9 @@ export default class MRC721
     };
   }
 
-  async getApproved(tokenId: string): Promise<string> {
+  async getApproved(tokenId: bigint): Promise<string> {
     const approved = await this.call(`getApproved(uint256)`, [
-      tokenId.startsWith('0x') ? tokenId : `0x${tokenId}`
+      `0x${tokenId.toString(16)}`
     ]);
     return approved ? approved.toString() : ethers.constants.AddressZero;
   }
@@ -125,12 +130,12 @@ export default class MRC721
   async safeTransferFromData(
     from: string,
     to: string,
-    tokenId: string,
+    tokenId: bigint,
     data: string
   ): Promise<Transaction> {
     const tx = await this.send(
       'safeTransferFrom(address,address,uint256,bytes)',
-      [from, to, tokenId, data]
+      [from, to, `0x${tokenId.toString(16)}`, data]
     );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -149,8 +154,10 @@ export default class MRC721
     return sym ? sym.toString() : '';
   }
 
-  async tokenURI(tokenId: string): Promise<string> {
-    const uri = await this.call(`tokenURI(uint256)`, [tokenId]);
+  async tokenURI(tokenId: bigint): Promise<string> {
+    const uri = await this.call(`tokenURI(uint256)`, [
+      `0x${tokenId.toString(16)}`
+    ]);
     return uri ? uri.toString() : '';
   }
 

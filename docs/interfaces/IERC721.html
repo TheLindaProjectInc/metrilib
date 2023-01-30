@@ -28,7 +28,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="IERC721Enumerable.html" class="tsd-signature-type" data-tsd-kind="Interface">IERC721Enumerable</a></li></ul></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L9">src/mrx/interface/IERC721.ts:9</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L9">src/mrx/interface/IERC721.ts:9</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -55,7 +55,7 @@
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="approve" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>approve</span><a href="#approve" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="approve.approve-1">approve<span class="tsd-signature-symbol">(</span>to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#approve.approve-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="approve.approve-1">approve<span class="tsd-signature-symbol">(</span>to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#approve.approve-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Gives permission to <code>to</code> to transfer <code>tokenId</code> token to another account.
 The approval is cleared when the token is transferred.</p>
@@ -73,10 +73,10 @@ The approval is cleared when the token is transferred.</p>
 <li>
 <h5>to: <span class="tsd-signature-type">string</span></h5></li>
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L73">src/mrx/interface/IERC721.ts:73</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L73">src/mrx/interface/IERC721.ts:73</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="balanceOf" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>balance<wbr/>Of</span><a href="#balanceOf" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -91,11 +91,11 @@ The approval is cleared when the token is transferred.</p>
 <h5>owner: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L13">src/mrx/interface/IERC721.ts:13</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L13">src/mrx/interface/IERC721.ts:13</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="getApproved" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Approved</span><a href="#getApproved" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="getApproved.getApproved-1">get<wbr/>Approved<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getApproved.getApproved-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getApproved.getApproved-1">get<wbr/>Approved<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getApproved.getApproved-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the account approved for <code>tokenId</code> token.</p>
 <p>Requirements:</p>
@@ -107,10 +107,10 @@ The approval is cleared when the token is transferred.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L82">src/mrx/interface/IERC721.ts:82</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L82">src/mrx/interface/IERC721.ts:82</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="isApprovedForAll" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>is<wbr/>Approved<wbr/>For<wbr/>All</span><a href="#isApprovedForAll" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -128,7 +128,7 @@ The approval is cleared when the token is transferred.</p>
 <h5>operator: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L101">src/mrx/interface/IERC721.ts:101</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L101">src/mrx/interface/IERC721.ts:101</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="name" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>name</span><a href="#name" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -138,11 +138,11 @@ The approval is cleared when the token is transferred.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L126">src/mrx/interface/IERC721.ts:126</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L126">src/mrx/interface/IERC721.ts:126</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="ownerOf" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>owner<wbr/>Of</span><a href="#ownerOf" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="ownerOf.ownerOf-1">owner<wbr/>Of<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#ownerOf.ownerOf-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="ownerOf.ownerOf-1">owner<wbr/>Of<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#ownerOf.ownerOf-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the owner of the <code>tokenId</code> token.</p>
 <p>Requirements:</p>
@@ -154,14 +154,14 @@ The approval is cleared when the token is transferred.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L22">src/mrx/interface/IERC721.ts:22</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L22">src/mrx/interface/IERC721.ts:22</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="safeTransferFrom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>safe<wbr/>Transfer<wbr/>From</span><a href="#safeTransferFrom" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="safeTransferFrom.safeTransferFrom-1">safe<wbr/>Transfer<wbr/>From<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#safeTransferFrom.safeTransferFrom-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="safeTransferFrom.safeTransferFrom-1">safe<wbr/>Transfer<wbr/>From<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#safeTransferFrom.safeTransferFrom-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Safely transfers <code>tokenId</code> token from <code>from</code> to <code>to</code>, checking first that contract recipients
 are aware of the ERC721 protocol to prevent tokens from being forever locked.</p>
@@ -183,14 +183,14 @@ are aware of the ERC721 protocol to prevent tokens from being forever locked.</p
 <li>
 <h5>to: <span class="tsd-signature-type">string</span></h5></li>
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L38">src/mrx/interface/IERC721.ts:38</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L38">src/mrx/interface/IERC721.ts:38</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="safeTransferFromData" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>safe<wbr/>Transfer<wbr/>From<wbr/>Data</span><a href="#safeTransferFromData" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="safeTransferFromData.safeTransferFromData-1">safe<wbr/>Transfer<wbr/>From<wbr/>Data<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#safeTransferFromData.safeTransferFromData-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="safeTransferFromData.safeTransferFromData-1">safe<wbr/>Transfer<wbr/>From<wbr/>Data<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#safeTransferFromData.safeTransferFromData-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Safely transfers <code>tokenId</code> token from <code>from</code> to <code>to</code>.</p>
 <p>Requirements:</p>
@@ -211,12 +211,12 @@ are aware of the ERC721 protocol to prevent tokens from being forever locked.</p
 <li>
 <h5>to: <span class="tsd-signature-type">string</span></h5></li>
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li>
 <li>
 <h5>data: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L116">src/mrx/interface/IERC721.ts:116</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L116">src/mrx/interface/IERC721.ts:116</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="setApprovalForAll" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Approval<wbr/>For<wbr/>All</span><a href="#setApprovalForAll" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -239,7 +239,7 @@ Operators can call <a href="IERC721.html#transferFrom">transferFrom</a> or <a hr
 <h5>approved: <span class="tsd-signature-type">boolean</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L94">src/mrx/interface/IERC721.ts:94</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L94">src/mrx/interface/IERC721.ts:94</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a id="supportsInterface" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>supports<wbr/>Interface</span><a href="#supportsInterface" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
@@ -264,7 +264,7 @@ Defined in EIP181.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="IERC165.html">IERC165</a>.<a href="IERC165.html#supportsInterface">supportsInterface</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC165.ts#L18">src/mrx/interface/IERC165.ts:18</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC165.ts#L18">src/mrx/interface/IERC165.ts:18</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="symbol" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>symbol</span><a href="#symbol" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -274,11 +274,11 @@ Defined in EIP181.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L131">src/mrx/interface/IERC721.ts:131</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L131">src/mrx/interface/IERC721.ts:131</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="tokenURI" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>tokenURI</span><a href="#tokenURI" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="tokenURI.tokenURI-1">tokenURI<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#tokenURI.tokenURI-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="tokenURI.tokenURI-1">tokenURI<span class="tsd-signature-symbol">(</span>tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#tokenURI.tokenURI-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the Uniform Resource Identifier (URI) for <code>tokenId</code> token.</p>
 </div>
@@ -286,14 +286,14 @@ Defined in EIP181.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L136">src/mrx/interface/IERC721.ts:136</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L136">src/mrx/interface/IERC721.ts:136</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface"><a id="transferFrom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>transfer<wbr/>From</span><a href="#transferFrom" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-<li class="tsd-signature tsd-anchor-link" id="transferFrom.transferFrom-1">transfer<wbr/>From<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#transferFrom.transferFrom-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="transferFrom.transferFrom-1">transfer<wbr/>From<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tokenId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span><a href="#transferFrom.transferFrom-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Transfers <code>tokenId</code> token from <code>from</code> to <code>to</code>.</p>
 <p>WARNING: Usage of this method is discouraged, use <a href="IERC721.html#safeTransferFrom">safeTransferFrom</a> whenever possible.</p>
@@ -314,10 +314,10 @@ Defined in EIP181.</p>
 <li>
 <h5>to: <span class="tsd-signature-type">string</span></h5></li>
 <li>
-<h5>tokenId: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>tokenId: <span class="tsd-signature-type">bigint</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Transaction.html" class="tsd-signature-type" data-tsd-kind="Interface">Transaction</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/ae8562a/src/mrx/interface/IERC721.ts#L58">src/mrx/interface/IERC721.ts:58</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/TheLindaProjectInc/metrilib/blob/4f23237/src/mrx/interface/IERC721.ts#L58">src/mrx/interface/IERC721.ts:58</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">

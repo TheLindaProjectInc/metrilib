@@ -19,7 +19,7 @@ export interface IERC721 extends IERC165 {
    *
    * - `tokenId` must exist.
    */
-  ownerOf(tokenId: string): Promise<string>;
+  ownerOf(tokenId: bigint): Promise<string>;
 
   /**
    * Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
@@ -38,7 +38,7 @@ export interface IERC721 extends IERC165 {
   safeTransferFrom(
     from: string,
     to: string,
-    tokenId: string
+    tokenId: bigint
   ): Promise<Transaction>;
 
   /**
@@ -55,7 +55,7 @@ export interface IERC721 extends IERC165 {
    *
    * Emits a Transfer event.
    */
-  transferFrom(from: string, to: string, tokenId: string): Promise<Transaction>;
+  transferFrom(from: string, to: string, tokenId: bigint): Promise<Transaction>;
 
   /**
    * Gives permission to `to` to transfer `tokenId` token to another account.
@@ -70,7 +70,7 @@ export interface IERC721 extends IERC165 {
    *
    * Emits an Approval event.
    */
-  approve(to: string, tokenId: string): Promise<Transaction>;
+  approve(to: string, tokenId: bigint): Promise<Transaction>;
 
   /**
    * Returns the account approved for `tokenId` token.
@@ -79,7 +79,7 @@ export interface IERC721 extends IERC165 {
    *
    * - `tokenId` must exist.
    */
-  getApproved(tokenId: string): Promise<string>;
+  getApproved(tokenId: bigint): Promise<string>;
 
   /**
    * Approve or remove `operator` as an operator for the caller.
@@ -116,7 +116,7 @@ export interface IERC721 extends IERC165 {
   safeTransferFromData(
     from: string,
     to: string,
-    tokenId: string,
+    tokenId: bigint,
     data: string
   ): Promise<Transaction>;
 
@@ -133,5 +133,5 @@ export interface IERC721 extends IERC165 {
   /**
    *  Returns the Uniform Resource Identifier (URI) for `tokenId` token.
    */
-  tokenURI(tokenId: string): Promise<string>;
+  tokenURI(tokenId: bigint): Promise<string>;
 }
