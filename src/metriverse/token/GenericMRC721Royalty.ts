@@ -15,16 +15,21 @@ export default class GenericMRC721Royalty
     this.abi = ABI.GenericMRC721Royalty;
   }
 
-  async royaltyInfo(): Promise<[beneficiary: string, royalty: bigint]> {
+  async royaltyInfo(): Promise<
+    readonly [beneficiary: string, royalty: bigint]
+  > {
     const result = await this.call('royaltyInfo()', []);
     if (result && result.length >= 2) {
-      const tup: [beneficiary: string, royalty: bigint] = [
+      const tup: readonly [beneficiary: string, royalty: bigint] = [
         result[0].toString(),
         BigInt(result[1].toString())
       ];
       return tup;
     }
-    return [ethers.constants.AddressZero, BigInt(0)];
+    return [ethers.constants.AddressZero, BigInt(0)] as readonly [
+      beneficiary: string,
+      royalty: bigint
+    ];
   }
 
   async setRoyalty(beneficiary: string, royalty: bigint): Promise<Transaction> {

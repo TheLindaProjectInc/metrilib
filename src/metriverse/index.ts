@@ -9,6 +9,11 @@ import GenericMRC721Royalty from './token/GenericMRC721Royalty';
 import { IGenericMRC721 } from './token/IGenericMRC721';
 import { IGenericMRC721Burnable } from './token/IGenericMRC721Burnable';
 import { IGenericMRC721Royalty } from './token/IGenericMRC721Royalty';
+import {
+  IMRC721Attribute,
+  MRC721AttributeDataType
+} from './token/MRC/IMRC721Attribute';
+import { IMRC721Metadata } from './token/MRC/IMRC721Metadata';
 import MRC20 from './token/MRC/MRC20';
 import MRC721 from './token/MRC/MRC721';
 
@@ -24,6 +29,9 @@ export {
   GenericMRC721BurnableRoyalty,
   IGenericMRC721Royalty,
   GenericMRC721Royalty,
+  IMRC721Attribute,
+  IMRC721Metadata,
+  MRC721AttributeDataType,
   SimpleAuction,
   BaseSale
 };

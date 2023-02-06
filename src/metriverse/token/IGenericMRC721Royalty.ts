@@ -11,7 +11,7 @@ export interface IGenericMRC721Royalty extends IGenericMRC721 {
    * Get the current royalty info
    * @returns {Promise<[beneficiary: string, royalty: bigint]>} the royalty info object
    */
-  royaltyInfo(): Promise<[beneficiary: string, royalty: bigint]>;
+  royaltyInfo(): Promise<readonly [beneficiary: string, royalty: bigint]>;
 
   /**
    * Set the current royalty info

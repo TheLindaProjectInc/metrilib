@@ -31,13 +31,15 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
   async mintUniqueBatch(
     receiver: string,
     tokenId: bigint,
-    batchSize: bigint
+    batchSize: bigint,
+    gasLimit: number | undefined
   ): Promise<Transaction> {
-    const tx = await this.send('mintUnique(address,uint256,uint8)', [
-      receiver,
-      `0x${tokenId.toString(16)}`,
-      `0x${batchSize.toString(16)}`
-    ]);
+    const tx = await this.send(
+      'mintUnique(address,uint256,uint8)',
+      [receiver, `0x${tokenId.toString(16)}`, `0x${batchSize.toString(16)}`],
+      '0',
+      gasLimit
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,

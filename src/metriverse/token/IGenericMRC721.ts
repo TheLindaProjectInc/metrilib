@@ -31,7 +31,8 @@ export interface IGenericMRC721 extends IERC721Enumerable {
   mintUniqueBatch(
     receiver: string,
     tokenId: bigint,
-    batchSize: bigint
+    batchSize: bigint,
+    gasLimit: number | undefined
   ): Promise<Transaction>;
 
   /**
