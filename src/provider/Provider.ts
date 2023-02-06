@@ -1,4 +1,4 @@
-import { Result } from 'ethers/lib/utils';
+import { Result } from 'ethers';
 import { EventLogs, TransactionReceipt } from '../mrx';
 import { NetworkType } from '../types/NetworkType';
 

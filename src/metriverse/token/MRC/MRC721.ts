@@ -24,7 +24,7 @@ export default class MRC721
     const tkn = await this.call(`tokenByIndex(uint256)`, [
       `0x${index.toString(16)}`
     ]);
-    return tkn ? tkn.toString() : ethers.constants.HashZero;
+    return tkn ? tkn.toString() : ethers.ZeroHash;
   }
 
   async tokenOfOwnerByIndex(owner: string, index: bigint): Promise<string> {
@@ -32,7 +32,7 @@ export default class MRC721
       owner,
       `0x${index.toString(16)}`
     ]);
-    return tkn ? tkn.toString() : ethers.constants.HashZero;
+    return tkn ? tkn.toString() : ethers.ZeroHash;
   }
 
   async balanceOf(owner: string): Promise<bigint> {
@@ -48,7 +48,7 @@ export default class MRC721
     const owner = await this.call(`ownerOf(uint256)`, [
       `0x${tokenId.toString(16)}`
     ]);
-    return owner ? owner.toString() : ethers.constants.AddressZero;
+    return owner ? owner.toString() : ethers.ZeroAddress;
   }
 
   async safeTransferFrom(
@@ -101,7 +101,7 @@ export default class MRC721
     const approved = await this.call(`getApproved(uint256)`, [
       `0x${tokenId.toString(16)}`
     ]);
-    return approved ? approved.toString() : ethers.constants.AddressZero;
+    return approved ? approved.toString() : ethers.ZeroAddress;
   }
 
   async setApprovalForAll(

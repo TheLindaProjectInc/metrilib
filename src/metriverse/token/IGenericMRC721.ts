@@ -32,7 +32,7 @@ export interface IGenericMRC721 extends IERC721Enumerable {
     receiver: string,
     tokenId: bigint,
     batchSize: bigint,
-    gasLimit: number | undefined
+    gasLimit?: number
   ): Promise<Transaction>;
 
   /**

@@ -48,7 +48,7 @@ export default class MetriverseCore extends MetrixContract {
    */
   async auctionController(): Promise<string> {
     const ac = await this.call(`auctionController()`, []);
-    return ac ? ac.toString() : ethers.constants.AddressZero;
+    return ac ? ac.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -66,7 +66,7 @@ export default class MetriverseCore extends MetrixContract {
    */
   async burnableFactory(): Promise<string> {
     const bf = await this.call(`burnableFactory()`, []);
-    return bf ? bf.toString() : ethers.constants.AddressZero;
+    return bf ? bf.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -129,7 +129,7 @@ export default class MetriverseCore extends MetrixContract {
    */
   async factory(): Promise<string> {
     const f = await this.call(`factory()`, []);
-    return f ? f.toString() : ethers.constants.AddressZero;
+    return f ? f.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -184,7 +184,7 @@ export default class MetriverseCore extends MetrixContract {
     const token = await this.call(`internalTokenIndex(uint256)`, [
       `0x${index.toString(16)}`
     ]);
-    return token ? token.toString() : ethers.constants.AddressZero;
+    return token ? token.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -241,7 +241,7 @@ export default class MetriverseCore extends MetrixContract {
    */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.constants.AddressZero;
+    return o ? o.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -271,9 +271,7 @@ export default class MetriverseCore extends MetrixContract {
         beneficiary
       ]
     );
-    return unsignedPermission
-      ? unsignedPermission.toString()
-      : ethers.constants.HashZero;
+    return unsignedPermission ? unsignedPermission.toString() : ethers.ZeroHash;
   }
 
   /**

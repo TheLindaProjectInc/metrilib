@@ -32,7 +32,7 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
     receiver: string,
     tokenId: bigint,
     batchSize: bigint,
-    gasLimit: number | undefined
+    gasLimit?: number
   ): Promise<Transaction> {
     const tx = await this.send(
       'mintUnique(address,uint256,uint8)',
@@ -49,7 +49,7 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
 
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.constants.AddressZero;
+    return o ? o.toString() : ethers.ZeroAddress;
   }
 
   async renounceOwnership(): Promise<Transaction> {

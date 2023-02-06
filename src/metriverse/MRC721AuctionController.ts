@@ -14,7 +14,7 @@ export default class MRC721AuctionController extends MetrixContract {
    */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.constants.AddressZero;
+    return o ? o.toString() : ethers.ZeroAddress;
   }
 
   async renounceOwnership(): Promise<Transaction> {
@@ -37,11 +37,11 @@ export default class MRC721AuctionController extends MetrixContract {
 
   async sale(): Promise<string> {
     const s = await this.call(`sale()`, []);
-    return s ? s.toString() : ethers.constants.AddressZero;
+    return s ? s.toString() : ethers.ZeroAddress;
   }
 
   async auction(): Promise<string> {
     const s = await this.call(`auction()`, []);
-    return s ? s.toString() : ethers.constants.AddressZero;
+    return s ? s.toString() : ethers.ZeroAddress;
   }
 }

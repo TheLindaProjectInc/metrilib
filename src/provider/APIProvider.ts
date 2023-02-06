@@ -1,6 +1,5 @@
-import { ethers } from 'ethers';
+import { ethers, Result } from 'ethers';
 import fetch from 'node-fetch';
-import { Result } from 'ethers/lib/utils';
 import Provider from './Provider';
 import { NetworkType } from '../types/NetworkType';
 import TransactionReceipt from '../mrx/TransactionReceipt';
@@ -100,7 +99,7 @@ export default class APIProvider implements Provider {
     data: any[], //eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined> {
-    const iface = new ethers.utils.Interface(abi);
+    const iface = new ethers.Interface(abi);
     const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
     let uri = '';
     switch (this.network) {

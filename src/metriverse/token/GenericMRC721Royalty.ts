@@ -26,7 +26,7 @@ export default class GenericMRC721Royalty
       ];
       return tup;
     }
-    return [ethers.constants.AddressZero, BigInt(0)] as readonly [
+    return [ethers.ZeroAddress, BigInt(0)] as readonly [
       beneficiary: string,
       royalty: bigint
     ];

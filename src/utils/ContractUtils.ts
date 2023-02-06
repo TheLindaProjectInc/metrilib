@@ -12,7 +12,7 @@ const getMetriverseCore = (
 ) => {
   if (
     CONTRACTS[version][network].MetriverseCore ===
-    ethers.constants.AddressZero.replace('0x', '')
+    ethers.ZeroAddress.replace('0x', '')
   ) {
     throw new Error(`No deployment found for v${version} on the ${network}`);
   }
@@ -28,7 +28,7 @@ const getMetriverseCoreAddress = (
 ) => {
   if (
     CONTRACTS[version][network].MetriverseCore ===
-    ethers.constants.AddressZero.replace('0x', '')
+    ethers.ZeroAddress.replace('0x', '')
   ) {
     throw new Error(`No deployment found for v${version} on the ${network}`);
   }
