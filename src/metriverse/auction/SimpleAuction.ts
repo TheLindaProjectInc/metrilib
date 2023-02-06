@@ -52,7 +52,7 @@ export default class SimpleAuction extends MetrixContract {
 
   async core(): Promise<string> {
     const c = await this.call(`core()`, []);
-    return c ? c.toString() : ethers.constants.AddressZero;
+    return c ? c.toString() : ethers.ZeroAddress;
   }
 
   async createSale(
@@ -121,15 +121,15 @@ export default class SimpleAuction extends MetrixContract {
       BigInt(0),
       BigInt(0),
       BigInt(0),
-      ethers.constants.AddressZero,
-      ethers.constants.AddressZero,
+      ethers.ZeroAddress,
+      ethers.ZeroAddress,
       false
     ];
   }
 
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.constants.AddressZero;
+    return o ? o.toString() : ethers.ZeroAddress;
   }
 
   async pause(): Promise<Transaction> {

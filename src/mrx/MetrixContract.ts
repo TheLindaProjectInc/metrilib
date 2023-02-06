@@ -1,4 +1,4 @@
-import { Result } from 'ethers/lib/utils';
+import { Result } from 'ethers';
 import Provider from '../provider/Provider';
 import { EventLogs } from './type/EventLogs';
 

@@ -36,7 +36,7 @@ export default class BaseSale extends MetrixContract {
    */
   async core(): Promise<string> {
     const c = await this.call(`core()`, []);
-    return c ? c.toString() : ethers.constants.AddressZero;
+    return c ? c.toString() : ethers.ZeroAddress;
   }
 
   /**
@@ -89,7 +89,7 @@ export default class BaseSale extends MetrixContract {
         ];
       return tup;
     }
-    return [BigInt(0), BigInt(0), ethers.constants.AddressZero];
+    return [BigInt(0), BigInt(0), ethers.ZeroAddress];
   }
 
   /**
@@ -98,7 +98,7 @@ export default class BaseSale extends MetrixContract {
    */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.constants.AddressZero;
+    return o ? o.toString() : ethers.ZeroAddress;
   }
 
   /**

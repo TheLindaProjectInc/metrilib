@@ -1,5 +1,4 @@
-import { ethers, utils } from 'ethers';
-import { Result } from 'ethers/lib/utils';
+import { ethers, Interface, Result } from 'ethers';
 import Provider from './Provider';
 import ContractResponse from '../mrx/ContractResponse';
 import { TransactionReceipt } from '../mrx';
@@ -7,7 +6,7 @@ import { MetrixRPCNode } from '../lib/MetrixRPC/MetrixRPC';
 import { NetworkType } from '../types/NetworkType';
 import { RPCEventLogs } from '../mrx/interface/RPCEventLogs';
 
-const AddressZero = ethers.constants.AddressZero.replace('0x', '');
+const AddressZero = ethers.ZeroAddress.replace('0x', '');
 
 export default class RPCProvider implements Provider {
   network: NetworkType;
@@ -47,7 +46,7 @@ export default class RPCProvider implements Provider {
         console.log(`Failed, transaction orphaned`);
         return [];
       }
-      const iface = new utils.Interface(abi);
+      const iface = new Interface(abi);
 
       const eventMap = new Map();
       for (const receipt of transactionReceipt) {
@@ -58,7 +57,7 @@ export default class RPCProvider implements Provider {
             });
             const data = `0x${log.data}`;
             const description = iface.parseLog({ data, topics });
-            const event = description.eventFragment;
+            const event = description?.fragment;
             if (description && event) {
               const name = event.name;
               const events = eventMap.get(name) ? eventMap.get(name) : [];
@@ -84,11 +83,11 @@ export default class RPCProvider implements Provider {
     data: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     abi: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Result | undefined> {
-    let result: utils.Result | undefined = undefined;
+    let result: Result | undefined = undefined;
     if (!abi || !this.sender) {
       return result;
     }
-    const iface = new utils.Interface(abi);
+    const iface = new Interface(abi);
     const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
     const response: ContractResponse = (await this.mrpc.promiseCallContract(
       contract,
@@ -116,14 +115,14 @@ export default class RPCProvider implements Provider {
   ): Promise<any> {
     if (!this.sender) return undefined;
     let result = {
-      txid: ethers.constants.HashZero.replace('0x', ''),
+      txid: ethers.ZeroHash.replace('0x', ''),
       sender: AddressZero,
       hash160: AddressZero
     };
     if (!abi) {
       return result;
     }
-    const iface = new utils.Interface(abi);
+    const iface = new Interface(abi);
     const encoded = method
       ? iface.encodeFunctionData(method, data).replace('0x', '')
       : '';

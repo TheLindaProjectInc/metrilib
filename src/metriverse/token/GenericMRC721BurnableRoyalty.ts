@@ -24,7 +24,7 @@ export default class GenericMRC721BurnableRoyalty
       ];
       return tup;
     }
-    return [ethers.constants.AddressZero, BigInt(0)];
+    return [ethers.ZeroAddress, BigInt(0)];
   }
 
   async setRoyalty(beneficiary: string, royalty: bigint): Promise<Transaction> {

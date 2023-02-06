@@ -36,6 +36,6 @@ describe('MRC721 tests', () => {
 
   it('should return address 0x0 (nobody) as approved token 0', async () => {
     const approved = await token.getApproved(BigInt(0));
-    equal(approved, ethers.constants.AddressZero);
+    equal(approved, ethers.ZeroAddress);
   }).timeout(10000);
 });
