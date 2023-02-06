@@ -32,7 +32,7 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
     receiver: string,
     tokenId: bigint,
     batchSize: bigint,
-    gasLimit: number | undefined
+    gasLimit?: number
   ): Promise<Transaction> {
     const tx = await this.send(
       'mintUnique(address,uint256,uint8)',
