@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import ABI from '../../abi';
 import { Transaction } from '../../mrx/Transaction';
 import Provider from '../../provider/Provider';
@@ -49,7 +49,7 @@ export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
 
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.ZeroAddress;
+    return o ? o.toString() : ZeroAddress;
   }
 
   async renounceOwnership(): Promise<Transaction> {

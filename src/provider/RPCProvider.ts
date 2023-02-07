@@ -1,4 +1,4 @@
-import { ethers, Interface, Result } from 'ethers';
+import { ZeroAddress, Interface, Result, ZeroHash } from 'ethers';
 import Provider from './Provider';
 import ContractResponse from '../mrx/ContractResponse';
 import { TransactionReceipt } from '../mrx';
@@ -6,7 +6,7 @@ import { MetrixRPCNode } from '../lib/MetrixRPC/MetrixRPC';
 import { NetworkType } from '../types/NetworkType';
 import { RPCEventLogs } from '../mrx/interface/RPCEventLogs';
 
-const AddressZero = ethers.ZeroAddress.replace('0x', '');
+const AddressZero = ZeroAddress.replace('0x', '');
 
 export default class RPCProvider implements Provider {
   network: NetworkType;
@@ -115,7 +115,7 @@ export default class RPCProvider implements Provider {
   ): Promise<any> {
     if (!this.sender) return undefined;
     let result = {
-      txid: ethers.ZeroHash.replace('0x', ''),
+      txid: ZeroHash.replace('0x', ''),
       sender: AddressZero,
       hash160: AddressZero
     };

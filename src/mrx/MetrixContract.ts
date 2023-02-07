@@ -37,7 +37,7 @@ export default class MetrixContract {
    * @param {string} method The contract method to call
    * @param {string[]|undefined} args The arguments
    *
-   * @return {utils.Result} see ethers.utils.Result
+   * @return {Result} see Result
    *
    * @public
    */ //eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -59,7 +59,7 @@ export default class MetrixContract {
    * @param {number | undefined} gasLimit The amount of gas units allowed
    * @param {number | undefined} gasPrice The satoshi price per gas
    *
-   * @return {utils.Result} see ethers.utils.Result
+   * @return {Result} see Result
    *
    * @public
    */

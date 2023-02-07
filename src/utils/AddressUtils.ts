@@ -1,5 +1,5 @@
 import bs58 from 'bs58';
-import { ethers, getBytes } from 'ethers';
+import { getBytes, sha256 } from 'ethers';
 import { networkPrefix } from '../interfaces/NetworkInterface';
 
 const toHexAddress = (address: string) => {
@@ -19,8 +19,8 @@ const fromHexAddress = (
   for (let c = 0; c < hex.length; c += 2)
     bytes.push(parseInt(hex.substr(c, 2), 16));
   const hash = getBytes(
-    ethers.sha256(
-      ethers.sha256(
+    sha256(
+      sha256(
         `0x${Buffer.from([networkPrefix[network], ...bytes]).toString('hex')}`
       )
     )

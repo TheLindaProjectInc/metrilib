@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import ABI from '../abi';
 import MetrixContract from '../mrx/MetrixContract';
 import { Transaction } from '../mrx/Transaction';
@@ -14,7 +14,7 @@ export default class MRC721AuctionController extends MetrixContract {
    */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.ZeroAddress;
+    return o ? o.toString() : ZeroAddress;
   }
 
   async renounceOwnership(): Promise<Transaction> {
@@ -37,11 +37,11 @@ export default class MRC721AuctionController extends MetrixContract {
 
   async sale(): Promise<string> {
     const s = await this.call(`sale()`, []);
-    return s ? s.toString() : ethers.ZeroAddress;
+    return s ? s.toString() : ZeroAddress;
   }
 
   async auction(): Promise<string> {
     const s = await this.call(`auction()`, []);
-    return s ? s.toString() : ethers.ZeroAddress;
+    return s ? s.toString() : ZeroAddress;
   }
 }

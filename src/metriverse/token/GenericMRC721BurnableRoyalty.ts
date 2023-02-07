@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import ABI from '../../abi';
 import { Transaction } from '../../mrx';
 
@@ -24,7 +24,7 @@ export default class GenericMRC721BurnableRoyalty
       ];
       return tup;
     }
-    return [ethers.ZeroAddress, BigInt(0)];
+    return [ZeroAddress, BigInt(0)];
   }
 
   async setRoyalty(beneficiary: string, royalty: bigint): Promise<Transaction> {

@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import ABI from '../../abi';
 import { Transaction } from '../../mrx';
 
@@ -26,7 +26,7 @@ export default class GenericMRC721Royalty
       ];
       return tup;
     }
-    return [ethers.ZeroAddress, BigInt(0)] as readonly [
+    return [ZeroAddress, BigInt(0)] as readonly [
       beneficiary: string,
       royalty: bigint
     ];

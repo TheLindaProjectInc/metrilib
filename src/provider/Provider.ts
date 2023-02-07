@@ -37,7 +37,7 @@ export default interface Provider {
    * @param {any[]} data The arguments
    * @param {any[]} abi The contract abi
    *
-   * @return {Promise<Result | undefined>} see ethers.utils.Result
+   * @return {Promise<Result | undefined>} see Result
    *
    */
   callContract(
@@ -58,7 +58,7 @@ export default interface Provider {
    * @param {number} gasPrice The satoshi price per gas
    * @param {any[]} abi The contract abi
    *
-   * @return {Promise<Result | undefined>} see ethers.utils.Result
+   * @return {Promise<Result | undefined>} see Result
    *
    */
   sendToContract(
