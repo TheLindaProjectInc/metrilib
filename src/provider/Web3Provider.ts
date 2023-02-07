@@ -1,4 +1,4 @@
-import { ethers, Result } from 'ethers';
+import { Interface, Result, ZeroAddress, ZeroHash } from 'ethers';
 import Provider from './Provider';
 import { TransactionReceipt } from '../mrx';
 import { NetworkType } from '../types/NetworkType';
@@ -108,7 +108,7 @@ export default class Web3Provider implements Provider {
       default:
         return undefined;
     }
-    const iface = new ethers.Interface(abi);
+    const iface = new Interface(abi);
     const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,7 +117,7 @@ export default class Web3Provider implements Provider {
         [contract.toLowerCase().replace('0x', ''), encoded.replace('0x', '')]
       );
       const response = (await result).executionResult.output;
-      const decoded: ethers.Result = iface.decodeFunctionResult(
+      const decoded: Result = iface.decodeFunctionResult(
         method,
         `0x${response}`
       );
@@ -147,7 +147,7 @@ export default class Web3Provider implements Provider {
       default:
         return undefined;
     }
-    const iface = new ethers.Interface(abi);
+    const iface = new Interface(abi);
     const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -164,13 +164,13 @@ export default class Web3Provider implements Provider {
       return result && result.txid != undefined
         ? {
             txid: result.txid,
-            sender: ethers.ZeroAddress.replace('0x', ''),
-            hash160: ethers.ZeroAddress.replace('0x', '')
+            sender: ZeroAddress.replace('0x', ''),
+            hash160: ZeroAddress.replace('0x', '')
           }
         : {
-            txid: ethers.ZeroHash.replace('0x', ''),
-            sender: ethers.ZeroAddress.replace('0x', ''),
-            hash160: ethers.ZeroAddress.replace('0x', '')
+            txid: ZeroHash.replace('0x', ''),
+            sender: ZeroAddress.replace('0x', ''),
+            hash160: ZeroAddress.replace('0x', '')
           };
     } catch (e) {
       console.log(e);

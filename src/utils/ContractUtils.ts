@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import { CONTRACTS } from '../constants';
 import { MetriverseCore } from '../metriverse';
 import { Provider } from '../provider';
@@ -11,8 +11,7 @@ const getMetriverseCore = (
   provider: Provider
 ) => {
   if (
-    CONTRACTS[version][network].MetriverseCore ===
-    ethers.ZeroAddress.replace('0x', '')
+    CONTRACTS[version][network].MetriverseCore === ZeroAddress.replace('0x', '')
   ) {
     throw new Error(`No deployment found for v${version} on the ${network}`);
   }
@@ -27,8 +26,7 @@ const getMetriverseCoreAddress = (
   version: Version | undefined = 'latest'
 ) => {
   if (
-    CONTRACTS[version][network].MetriverseCore ===
-    ethers.ZeroAddress.replace('0x', '')
+    CONTRACTS[version][network].MetriverseCore === ZeroAddress.replace('0x', '')
   ) {
     throw new Error(`No deployment found for v${version} on the ${network}`);
   }

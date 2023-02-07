@@ -1,5 +1,5 @@
 import { equal } from 'assert';
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import { MRC721 } from '../../';
 import { APIProvider } from '../../../provider';
 
@@ -36,6 +36,6 @@ describe('MRC721 tests', () => {
 
   it('should return address 0x0 (nobody) as approved token 0', async () => {
     const approved = await token.getApproved(BigInt(0));
-    equal(approved, ethers.ZeroAddress);
+    equal(approved, ZeroAddress);
   }).timeout(10000);
 });

@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ZeroAddress } from 'ethers';
 import ABI from '../../abi';
 import { MetrixContract, Transaction } from '../../mrx';
 
@@ -36,7 +36,7 @@ export default class BaseSale extends MetrixContract {
    */
   async core(): Promise<string> {
     const c = await this.call(`core()`, []);
-    return c ? c.toString() : ethers.ZeroAddress;
+    return c ? c.toString() : ZeroAddress;
   }
 
   /**
@@ -89,7 +89,7 @@ export default class BaseSale extends MetrixContract {
         ];
       return tup;
     }
-    return [BigInt(0), BigInt(0), ethers.ZeroAddress];
+    return [BigInt(0), BigInt(0), ZeroAddress];
   }
 
   /**
@@ -98,7 +98,7 @@ export default class BaseSale extends MetrixContract {
    */
   async owner(): Promise<string> {
     const o = await this.call(`owner()`, []);
-    return o ? o.toString() : ethers.ZeroAddress;
+    return o ? o.toString() : ZeroAddress;
   }
 
   /**
