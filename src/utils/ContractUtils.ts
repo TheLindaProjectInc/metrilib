@@ -7,8 +7,8 @@ import { Version } from '../types/Version';
 
 const getMetriverseCore = (
   network: NetworkType,
-  version: Version | undefined = 'latest',
-  provider: Provider
+  provider: Provider,
+  version: Version | undefined = 'latest'
 ) => {
   if (
     CONTRACTS[version][network].MetriverseCore === ZeroAddress.replace('0x', '')
