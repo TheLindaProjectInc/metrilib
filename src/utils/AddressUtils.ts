@@ -2,6 +2,10 @@ import bs58 from 'bs58';
 import { getBytes, sha256 } from 'ethers';
 import { networkPrefix } from '../interfaces/NetworkInterface';
 
+export const MetrixAddressRegex = /^([mM])[a-zA-HJ-NP-Z0-9]{25,39}$/;
+export const HexAddressRegex = /^[a-fA-F0-9]{40}$/;
+export const EthereumAddressRegex = /^0x[a-fA-F0-9]{40}$/;
+
 const toHexAddress = (address: string) => {
   const bytes = bs58.decode(address);
   const hex = Buffer.from(bytes.buffer).toString('hex');

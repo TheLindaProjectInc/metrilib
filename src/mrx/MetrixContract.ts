@@ -14,7 +14,7 @@ export default class MetrixContract {
     abi: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
     bytecode?: string
   ) {
-    this.address = address;
+    this.address = address.toLowerCase().replace('0x', '');
     this.provider = provider;
     this.abi = abi;
     this.bytecode = bytecode;
