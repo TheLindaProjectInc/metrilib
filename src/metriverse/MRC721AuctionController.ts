@@ -6,7 +6,7 @@ import Provider from '../provider/Provider';
 
 export default class MRC721AuctionController extends MetrixContract {
   constructor(address: string, provider: Provider) {
-    super(address, provider, ABI.MRC721AuctionController);
+    super(address, provider, ABI.MetriVerse.MRC721AuctionController);
   }
   /**
    * Get the contract owner

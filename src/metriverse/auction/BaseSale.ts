@@ -6,7 +6,7 @@ import Provider from '../../provider/Provider';
 
 export default class BaseSale extends MetrixContract {
   constructor(address: string, provider: Provider) {
-    super(address, provider, ABI.BaseSale);
+    super(address, provider, ABI.MetriVerse.BaseSale);
   }
 
   /**

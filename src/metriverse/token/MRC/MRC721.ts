@@ -8,7 +8,7 @@ export default class MRC721
   implements IERC721Enumerable
 {
   constructor(address: string, provider: Provider) {
-    super(address, provider, ABI.MRC721);
+    super(address, provider, ABI.MetriVerse.MRC721);
   }
 
   async totalSupply(): Promise<bigint> {
