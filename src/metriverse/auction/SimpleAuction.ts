@@ -6,7 +6,7 @@ import Provider from '../../provider/Provider';
 
 export default class SimpleAuction extends MetrixContract {
   constructor(address: string, provider: Provider) {
-    super(address, provider, ABI.SimpleAuction);
+    super(address, provider, ABI.MetriVerse.SimpleAuction);
   }
   async auctionEnd(
     assetAddress: string,
@@ -55,18 +55,23 @@ export default class SimpleAuction extends MetrixContract {
     return c ? c.toString() : ZeroAddress;
   }
 
-  async createSale(
+  async createAuction(
     assetAddress: string,
     tokenId: bigint,
-    price: bigint,
+    minimumBid: bigint,
+    biddingTime: bigint,
     beneficiaryAddress: string
   ): Promise<Transaction> {
-    const tx = await this.send('createSale(address,uint256,uint256,address)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`,
-      `0x${price.toString(16)}`,
-      beneficiaryAddress
-    ]);
+    const tx = await this.send(
+      'createAuction(address,uint256,uint256,uint256,address)',
+      [
+        assetAddress,
+        `0x${tokenId.toString(16)}`,
+        `0x${minimumBid.toString(16)}`,
+        `0x${biddingTime.toString(16)}`,
+        beneficiaryAddress
+      ]
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,
@@ -89,7 +94,7 @@ export default class SimpleAuction extends MetrixContract {
       ended: boolean
     ]
   > {
-    const auction = await this.call(`getSale(address, uint256)`, [
+    const auction = await this.call(`getAuction(address, uint256)`, [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
@@ -146,8 +151,8 @@ export default class SimpleAuction extends MetrixContract {
     return p ? p.toString() === 'true' : false;
   }
 
-  async purchase(assetAddress: string, tokenId: bigint): Promise<Transaction> {
-    const tx = await this.send('purchase(address,uint256)', [
+  async claim(assetAddress: string, tokenId: bigint): Promise<Transaction> {
+    const tx = await this.send('claim(address,uint256)', [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);

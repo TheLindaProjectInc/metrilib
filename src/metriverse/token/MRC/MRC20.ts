@@ -6,7 +6,7 @@ import Provider from '../../../provider/Provider';
 
 export default class MRC20 extends MetrixContract implements IERC20Metadata {
   constructor(address: string, provider: Provider) {
-    super(address, provider, ABI.MRC20);
+    super(address, provider, ABI.MetriVerse.MRC20);
   }
 
   async name(): Promise<string> {

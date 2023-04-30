@@ -10,7 +10,7 @@ export default class GenericMRC721Burnable
 {
   constructor(address: string, provider: Provider) {
     super(address, provider);
-    this.abi = ABI.GenericMRC721Burnable;
+    this.abi = ABI.MetriVerse.GenericMRC721Burnable;
   }
 
   async burn(tokenId: bigint): Promise<Transaction> {

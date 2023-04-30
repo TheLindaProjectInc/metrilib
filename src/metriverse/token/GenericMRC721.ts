@@ -8,7 +8,7 @@ import { IGenericMRC721 } from './IGenericMRC721';
 export default class GenericMRC721 extends MRC721 implements IGenericMRC721 {
   constructor(address: string, provider: Provider) {
     super(address, provider);
-    this.abi = ABI.GenericMRC721;
+    this.abi = ABI.MetriVerse.GenericMRC721;
   }
 
   async controllers(operator: string): Promise<boolean> {

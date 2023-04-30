@@ -12,7 +12,7 @@ export default class GenericMRC721Royalty
 {
   constructor(address: string, provider: Provider) {
     super(address, provider);
-    this.abi = ABI.GenericMRC721Royalty;
+    this.abi = ABI.MetriVerse.GenericMRC721Royalty;
   }
 
   async royaltyInfo(): Promise<
