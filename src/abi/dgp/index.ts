@@ -1,5 +1,5 @@
-import {Budget} from './Budget'
-import {DGP} from './DGP'
+import { Budget } from './Budget';
+import { DGP } from './DGP';
 import { Governance } from './Governance';
 
 const ABI = {
