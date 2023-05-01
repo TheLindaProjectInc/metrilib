@@ -23,7 +23,7 @@ export default class BaseSale extends MetrixContract {
     gasLimit: number | undefined = 300000
   ): Promise<Transaction> {
     const tx = await this.send(
-      'cancelSale(address,tokenId)',
+      'cancelSale(address,uint256)',
       [assetAddress, `0x${tokenId.toString(16)}`],
       '0',
       gasLimit,
