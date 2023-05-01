@@ -18,7 +18,7 @@ export default class SimpleAuction extends MetrixContract {
     assetAddress: string,
     tokenId: bigint
   ): Promise<Transaction> {
-    const tx = await this.send('auctionEnd(address,tokenId)', [
+    const tx = await this.send('auctionEnd(address,uint256)', [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
@@ -36,7 +36,7 @@ export default class SimpleAuction extends MetrixContract {
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async bid(assetAddress: string, tokenId: bigint): Promise<Transaction> {
-    const tx = await this.send('bid(address,tokenId)', [
+    const tx = await this.send('bid(address,uint256)', [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
@@ -57,7 +57,7 @@ export default class SimpleAuction extends MetrixContract {
     assetAddress: string,
     tokenId: bigint
   ): Promise<Transaction> {
-    const tx = await this.send('cancelAuction(address,tokenId)', [
+    const tx = await this.send('cancelAuction(address,uint256)', [
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
