@@ -84,6 +84,7 @@ export default class SimpleAuction extends MetrixContract {
    * @param minimumBid the minimum bit in satoshi MRX
    * @param biddingTime the bidding time in seconds
    * @param beneficiaryAddress the EVM adddress which the proceeds will go to
+   * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async createAuction(
@@ -91,7 +92,8 @@ export default class SimpleAuction extends MetrixContract {
     tokenId: bigint,
     minimumBid: bigint,
     biddingTime: bigint,
-    beneficiaryAddress: string
+    beneficiaryAddress: string,
+    gasLimit: number | undefined = 300000
   ): Promise<Transaction> {
     const tx = await this.send(
       'createAuction(address,uint256,uint256,uint256,address)',
@@ -101,7 +103,10 @@ export default class SimpleAuction extends MetrixContract {
         `0x${minimumBid.toString(16)}`,
         `0x${biddingTime.toString(16)}`,
         beneficiaryAddress
-      ]
+      ],
+      '0',
+      gasLimit,
+      5000
     );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
@@ -202,15 +207,23 @@ export default class SimpleAuction extends MetrixContract {
 
   /**
    * Claim the asset from an ended auction
-   * @param assetAddress
-   * @param tokenId
+   * @param assetAddress the EVM adddress of the MRC721 contract
+   * @param tokenId the uint256 id of the token
+   * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
-  async claim(assetAddress: string, tokenId: bigint): Promise<Transaction> {
-    const tx = await this.send('claim(address,uint256)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`
-    ]);
+  async claim(
+    assetAddress: string,
+    tokenId: bigint,
+    gasLimit: number | undefined = 300000
+  ): Promise<Transaction> {
+    const tx = await this.send(
+      'claim(address,uint256)',
+      [assetAddress, `0x${tokenId.toString(16)}`],
+      '0',
+      gasLimit,
+      5000
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,

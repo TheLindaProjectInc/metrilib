@@ -3,6 +3,7 @@ import ABI from '../../abi';
 import { MetrixContract, Transaction } from '../../mrx';
 
 import Provider from '../../provider/Provider';
+import { parseFromIntString } from '../../utils/NumberUtils';
 
 export default class BaseSale extends MetrixContract {
   constructor(address: string, provider: Provider) {
@@ -13,16 +14,21 @@ export default class BaseSale extends MetrixContract {
    * Cancels an MRC721 sale
    * @param assetAddress the EVM adddress of the MRC721 contract
    * @param tokenId the uint256 id of the token
+   * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async cancelSale(
     assetAddress: string,
-    tokenId: bigint
+    tokenId: bigint,
+    gasLimit: number | undefined = 300000
   ): Promise<Transaction> {
-    const tx = await this.send('cancelSale(address,tokenId)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`
-    ]);
+    const tx = await this.send(
+      'cancelSale(address,tokenId)',
+      [assetAddress, `0x${tokenId.toString(16)}`],
+      '0',
+      gasLimit,
+      5000
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,
@@ -45,20 +51,28 @@ export default class BaseSale extends MetrixContract {
    * @param tokenId the uint256 id of the token
    * @param price the price in satoshi MRX
    * @param beneficiaryAddress the EVM adddress which the proceeds will go to
+   * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async createSale(
     assetAddress: string,
     tokenId: bigint,
     price: bigint,
-    beneficiaryAddress: string
+    beneficiaryAddress: string,
+    gasLimit: number | undefined = 300000
   ): Promise<Transaction> {
-    const tx = await this.send('createSale(address,uint256,uint256,address)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`,
-      `0x${price.toString(16)}`,
-      beneficiaryAddress
-    ]);
+    const tx = await this.send(
+      'createSale(address,uint256,uint256,address)',
+      [
+        assetAddress,
+        `0x${tokenId.toString(16)}`,
+        `0x${price.toString(16)}`,
+        beneficiaryAddress
+      ],
+      '0',
+      gasLimit,
+      5000
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,
@@ -127,13 +141,22 @@ export default class BaseSale extends MetrixContract {
    * Purchase an MRC721 token which is for sale.
    * @param assetAddress the EVM adddress of the MRC721 contract
    * @param tokenId the uint256 id of the token
+   * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
-  async purchase(assetAddress: string, tokenId: bigint): Promise<Transaction> {
-    const tx = await this.send('purchase(address,uint256)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`
-    ]);
+  async purchase(
+    assetAddress: string,
+    tokenId: bigint,
+    price: bigint,
+    gasLimit: number | undefined = 300000
+  ): Promise<Transaction> {
+    const tx = await this.send(
+      'purchase(address,uint256)',
+      [assetAddress, `0x${tokenId.toString(16)}`],
+      parseFromIntString(price.toString(), 8),
+      gasLimit,
+      5000
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,

@@ -1,6 +1,6 @@
 {
   "name": "@metrixcoin/metrilib",
-  "version": "1.5.10-beta",
+  "version": "1.5.11-beta",
   "description": "Library for interacting with MetriVerse",
   "author": "SeqSEE",
   "license": "MIT",
@@ -41,7 +41,7 @@
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
     "typedoc": "^0.24.6",
-    "typescript": "4.9.5"
+    "typescript": "5.0.4"
   },
   "dependencies": {
     "bs58": "^5.0.0",
