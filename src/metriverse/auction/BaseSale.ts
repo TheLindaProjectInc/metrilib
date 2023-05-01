@@ -12,7 +12,7 @@ export default class BaseSale extends MetrixContract {
   /**
    * Cancels an MRC721 sale
    * @param assetAddress the EVM adddress of the MRC721 contract
-   * @param tokenId the uin256 id of the token
+   * @param tokenId the uint256 id of the token
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async cancelSale(
@@ -42,7 +42,7 @@ export default class BaseSale extends MetrixContract {
   /**
    * Create a new MRC721 sale
    * @param assetAddress the EVM adddress of the MRC721 contract
-   * @param tokenId the uin256 id of the token
+   * @param tokenId the uint256 id of the token
    * @param price the price in satoshi MRX
    * @param beneficiaryAddress the EVM adddress which the proceeds will go to
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
@@ -69,8 +69,8 @@ export default class BaseSale extends MetrixContract {
   /**
    *  Get a sale object from the contract state
    * @param assetAddress the EVM adddress of the MRC721 contract
-   * @param tokenId the uin256 id of the token
-   * @returns {Promise<[tokenId: bigint, price: bigint, beneficiaryAddress: string]>}  the Sale object
+   * @param tokenId the uint256 id of the token
+   * @returns {Promise<[tokenId: bigint, price: bigint, beneficiaryAddress: string]>}  the Auction object
    */
   async getSale(
     assetAddress: string,
@@ -126,7 +126,7 @@ export default class BaseSale extends MetrixContract {
   /**
    * Purchase an MRC721 token which is for sale.
    * @param assetAddress the EVM adddress of the MRC721 contract
-   * @param tokenId the uin256 id of the token
+   * @param tokenId the uint256 id of the token
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async purchase(assetAddress: string, tokenId: bigint): Promise<Transaction> {
