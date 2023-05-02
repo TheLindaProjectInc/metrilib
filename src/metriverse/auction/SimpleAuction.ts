@@ -140,7 +140,7 @@ export default class SimpleAuction extends MetrixContract {
       assetAddress,
       `0x${tokenId.toString(16)}`
     ]);
-    if (auction && auction.length >= 9) {
+    if (auction && auction.length >= 8) {
       const tup: [
         tokenId: bigint,
         winningBid: bigint,
