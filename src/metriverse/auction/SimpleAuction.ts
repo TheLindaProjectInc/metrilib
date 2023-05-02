@@ -33,13 +33,19 @@ export default class SimpleAuction extends MetrixContract {
    * Bid on a MRC721 token that is for auction
    * @param assetAddress the EVM adddress of the MRC721 contract
    * @param tokenId the uint256 id of the token
+   * @param bidAmount the amount in MRX as a string
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
-  async bid(assetAddress: string, tokenId: bigint): Promise<Transaction> {
-    const tx = await this.send('bid(address,uint256)', [
-      assetAddress,
-      `0x${tokenId.toString(16)}`
-    ]);
+  async bid(
+    assetAddress: string,
+    tokenId: bigint,
+    bidAmount: string | undefined = '0'
+  ): Promise<Transaction> {
+    const tx = await this.send(
+      'bid(address,uint256)',
+      [assetAddress, `0x${tokenId.toString(16)}`],
+      bidAmount
+    );
     const getReceipts = this.provider.getTxReceipts(tx, this.abi, this.address);
     return {
       txid: tx.txid,

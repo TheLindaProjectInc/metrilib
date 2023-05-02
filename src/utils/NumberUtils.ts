@@ -21,3 +21,22 @@ export const parseFromIntString = function (
   }
   return `${integers}.${decimals}`;
 };
+
+export const toSatoshi = function (amt: string | number) {
+  if (typeof amt === 'number') amt = amt.toFixed(8);
+  const split = `${amt}`.split('.');
+  const decimals = ['0', '0', '0', '0', '0', '0', '0', '0'];
+  if (split.length == 2) {
+    for (let i = 0; i < 8; i++) {
+      if (split[1].length > i) {
+        decimals[i] = split[1][i];
+      }
+    }
+    if (split[0] === '0') {
+      while (decimals.length > 1 && decimals[0] === '0') {
+        decimals.shift();
+      }
+    }
+  }
+  return `${split[0] == '0' ? '' : split[0]}${decimals.join('')}`;
+};

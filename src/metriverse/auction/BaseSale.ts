@@ -3,7 +3,6 @@ import ABI from '../../abi';
 import { MetrixContract, Transaction } from '../../mrx';
 
 import Provider from '../../provider/Provider';
-import { parseFromIntString } from '../../utils/NumberUtils';
 
 export default class BaseSale extends MetrixContract {
   constructor(address: string, provider: Provider) {
@@ -141,19 +140,20 @@ export default class BaseSale extends MetrixContract {
    * Purchase an MRC721 token which is for sale.
    * @param assetAddress the EVM adddress of the MRC721 contract
    * @param tokenId the uint256 id of the token
+   * @param price the amount in MRX as a string
    * @param gasLimit optionally the maximum units of gas which can be consumed
    * @returns {Promise<Transaction>} an array of TransactionReceipt objects
    */
   async purchase(
     assetAddress: string,
     tokenId: bigint,
-    price: bigint,
+    price: string | undefined = '0',
     gasLimit: number | undefined = 300000
   ): Promise<Transaction> {
     const tx = await this.send(
       'purchase(address,uint256)',
       [assetAddress, `0x${tokenId.toString(16)}`],
-      parseFromIntString(price.toString(), 8),
+      price,
       gasLimit,
       5000
     );
