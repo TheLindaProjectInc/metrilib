@@ -56,8 +56,8 @@ export default class MetriverseCore extends MetrixContract {
    * @returns {Promise<bigint>} the current auction fee pecent
    */
   async auctionFee(): Promise<bigint> {
-    const ac = await this.call(`auctionController()`, []);
-    return ac ? BigInt(ac.toString()) : BigInt(0);
+    const fee = await this.call(`auctionFee()`, []);
+    return fee ? BigInt(fee.toString()) : BigInt(0);
   }
 
   /**

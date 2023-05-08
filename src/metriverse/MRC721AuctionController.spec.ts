@@ -10,18 +10,6 @@ describe('MRC721AuctionController tests', () => {
 
   const core = getMetriverseCore(network, provider, 'latest');
 
-  it('has a auctionController', async () => {
-    const controller = await core.auctionController();
-    notEqual(controller, ZeroAddress);
-  }).timeout(20000);
-
-  it('owns the auctionController', async () => {
-    const controller = await core.auctionController();
-    const ac = new MRC721AuctionController(controller, provider);
-    const owner = await ac.owner();
-    equal(owner.toLowerCase().replace('0x', ''), core.address);
-  }).timeout(20000);
-
   it('has an auction', async () => {
     const controller = await core.auctionController();
     const ac = new MRC721AuctionController(controller, provider);
@@ -40,5 +28,12 @@ describe('MRC721AuctionController tests', () => {
     const owner = await s.owner();
     notEqual(sale, ZeroAddress);
     equal(owner, controller);
+  }).timeout(20000);
+
+  it('is owned by MetriVerseCore', async () => {
+    const controller = await core.auctionController();
+    const ac = new MRC721AuctionController(controller, provider);
+    const owner = await ac.owner();
+    equal(owner.replace('0x', '').toLowerCase(), core.address);
   }).timeout(20000);
 });
