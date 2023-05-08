@@ -1,4 +1,9 @@
-export type MRC721AttributeDataType = 'string' | 'date' | 'number';
+export type MRC721AttributeDataType =
+  | 'string'
+  | 'date'
+  | 'number'
+  | 'percentage'
+  | 'uri';
 
 export interface IMRC721Attribute {
   trait_type: string;
