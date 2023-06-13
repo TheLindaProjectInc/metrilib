@@ -2038,6 +2038,11 @@
   ge && ve(ge);
   var Ae = new U();
   Object.defineProperty(window, 'app', { value: Ae });
+  document.querySelectorAll('summary a').forEach((t) => {
+    t.addEventListener('click', () => {
+      location.assign(t.href);
+    });
+  });
 })();
 /*! Bundled license information:
 
