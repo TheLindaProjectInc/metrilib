@@ -8,6 +8,7 @@ import { GenericMRC721Royalty } from './GenericMRC721Royalty';
 import { BaseSale } from './BaseSale';
 import { MRC721AuctionController } from './MRC721AuctionController';
 import { SimpleAuction } from './SimpleAuction';
+import { Ownable } from './Ownable';
 
 const ABI = {
   BaseSale,
@@ -16,6 +17,7 @@ const ABI = {
   GenericMRC721BurnableRoyalty,
   GenericMRC721Royalty,
   MetriverseCore,
+  Ownable,
   MRC20,
   MRC721,
   MRC721AuctionController,

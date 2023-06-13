@@ -157,22 +157,40 @@ export default class RPCProvider implements Provider {
     }
     return BigInt(0);
   }
+
   /**
    * Get logs from a contract
    *
    * @param {string} contract transaction object
+   * @param {bigint | undefined} startHeight starting block height to get logs defaults to current block height -10000
    * @return {Promise<RPCEventLogs>} an {@link RPCEventLogs} object
    *
    */
-  async getEventLogs(contract: string): Promise<RPCEventLogs> {
+  async getEventLogs(
+    contract: string,
+    startHeight?: bigint
+  ): Promise<RPCEventLogs> {
     const height = await this.mrpc.promiseGetBlockCount();
+    let start = BigInt(height - 10000);
+    if (startHeight) {
+      start = startHeight;
+    }
     const logs: RPCEventLogs = await this.mrpc.promiseSearchLogs(
-      height - 10000,
+      Number(start),
       -1,
       contract,
       undefined,
       1
     );
     return logs;
+  }
+
+  async searchEventLogs(
+    contract: string,
+    topics?: string[] | undefined,
+    fromBlock: number | undefined = 0,
+    toBlock: number | undefined = -1
+  ): Promise<RPCEventLogs> {
+    throw new Error('Method not implemented.');
   }
 }

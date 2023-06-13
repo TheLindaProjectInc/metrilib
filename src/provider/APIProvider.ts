@@ -225,4 +225,13 @@ export default class APIProvider implements Provider {
       logs
     };
   }
+
+  async searchEventLogs(
+    contract: string,
+    topics?: string[] | undefined,
+    fromBlock: number | undefined = 0,
+    toBlock: number | undefined = -1
+  ): Promise<APIEventLogs> {
+    throw new Error('Method not implemented.');
+  }
 }
