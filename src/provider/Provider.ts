@@ -15,6 +15,23 @@ export default interface Provider {
   getEventLogs(contract: string): Promise<EventLogs>;
 
   /**
+   * Search events from a contract
+   *
+   * @param {string} contract transaction object
+   * @param {string[] | undefined} topics the topics to filter by
+   * @param {number | undefined} fromBlock the starting block height to filter by defaults to 0
+   * @param {number | undefined} toBlock the end block height to filter by, defaults to -1 for most recent block
+   * @return {Promise<APIEventLogs | RPCEventLogs>} an {@link EventLogs} object
+   *
+   */
+  searchEventLogs(
+    contract: string,
+    topics?: string[],
+    fromBlock?: number,
+    toBlock?: number
+  ): Promise<EventLogs>;
+
+  /**
    * Get receipts from a transaction
    *
    * @param {{ txid: string; sender: string; hash160: string }} tx transaction object
