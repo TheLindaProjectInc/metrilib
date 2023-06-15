@@ -178,7 +178,7 @@ export default class RPCProvider implements Provider {
     const logs: RPCEventLogs = await this.mrpc.promiseSearchLogs(
       Number(start),
       -1,
-      contract,
+      [contract],
       undefined,
       1
     );

@@ -1127,12 +1127,12 @@ abstract class MetrixRPC {
   public promiseSearchLogs(
     fromBlock:number,
     toBlock: number | undefined = -1,
-    address:string,
+    addresses:string[] | undefined,
     topics: Array<string | null> | undefined = [],
     minconf: number | undefined = 0,): Promise<any> {
     return new Promise<any>(
       (resolve: (result: any) => any, reject: (e: Error) => any): void => {
-        this.searchLogs(fromBlock, toBlock, address, topics, minconf, (e: Error | null, result: any): void => {
+        this.searchLogs(fromBlock, toBlock, addresses, topics, minconf, (e: Error | null, result: any): void => {
           if (e) reject(e);
           else resolve(result);
         });
@@ -1143,12 +1143,16 @@ abstract class MetrixRPC {
   public searchLogs(
     fromBlock:number,
     toBlock: number,
-    address:string | undefined,
+    addresses:string[] | undefined = [],
     topics: Array<string | null> | undefined = [],
     minconf: number | undefined = 0,
     callback: (e: Error | null, result: any /* eslint-disable-line */) => void
   ): void {
-    let params = `[${fromBlock}, ${toBlock}, "${address ? address : ''}", ${JSON.stringify(topics)}, ${minconf}]`
+    
+    let params = `[${fromBlock}, ${toBlock}, ${JSON.stringify({
+      addresses,
+      topics
+    })}, ${minconf}]`
     
     this.callDaemon('searchlogs', params, callback);
   }
