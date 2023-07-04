@@ -51,6 +51,9 @@ export default class Web3Provider implements Provider {
     const receipts: TransactionReceipt[] = [];
     try {
       const { txid, sender, hash160 } = tx; // eslint-disable-line @typescript-eslint/no-unused-vars
+      if (txid === ZeroHash.replace('0x', '')) {
+        return receipts;
+      }
       const checkConfirm = async () => {
         const receipt = await this.getTransactionReceipt(txid);
         return receipt;

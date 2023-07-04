@@ -1,4 +1,4 @@
-import { Interface, Result } from 'ethers';
+import { Interface, Result, ZeroHash } from 'ethers';
 import fetch from 'node-fetch';
 import Provider from './Provider';
 import { NetworkType } from '../types/NetworkType';
@@ -51,6 +51,9 @@ export default class APIProvider implements Provider {
     const receipts: TransactionReceipt[] = [];
     try {
       const { txid, sender, hash160 } = tx; // eslint-disable-line @typescript-eslint/no-unused-vars
+      if (txid === ZeroHash.replace('0x', '')) {
+        return receipts;
+      }
       const checkConfirm = async () => {
         const receipt = await this.getTransactionReceipt(txid);
         return receipt;
