@@ -29,6 +29,9 @@ export default class RPCProvider implements Provider {
     const receipts: TransactionReceipt[] = [];
     try {
       const { txid, sender, hash160 } = tx; // eslint-disable-line @typescript-eslint/no-unused-vars
+      if (txid === ZeroHash.replace('0x', '')) {
+        return receipts;
+      }
       let transaction = await this.mrpc.promiseGetTransaction(txid);
       let transactionReceipt: TransactionReceipt[] =
         await this.mrpc.promiseGetTransactionReceipt(txid);
