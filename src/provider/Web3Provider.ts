@@ -150,9 +150,10 @@ export default class Web3Provider implements Provider {
       default:
         return undefined;
     }
-    const iface = new Interface(abi);
-    const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
     try {
+      const iface = new Interface(abi);
+      const encoded = iface.encodeFunctionData(method, data).replace('0x', '');
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result = await (window as any).metrimask.rpcProvider.rawCall(
         'sendtocontract',
@@ -176,9 +177,10 @@ export default class Web3Provider implements Provider {
             hash160: ZeroAddress.replace('0x', '')
           };
     } catch (e) {
-      console.log(e);
+      throw new Error(
+        (e as any).message ? (e as any).message : 'An unknown error occurred'
+      );
     }
-    return undefined;
   }
 
   async balance(address: string): Promise<bigint> {

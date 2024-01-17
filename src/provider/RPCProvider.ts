@@ -116,39 +116,46 @@ export default class RPCProvider implements Provider {
     changeToSender: boolean | undefined = true
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> {
-    if (!this.sender) return undefined;
+    if (!this.sender) throw new Error('Sender is undefined');
     let result = {
       txid: ZeroHash.replace('0x', ''),
       sender: AddressZero,
       hash160: AddressZero
     };
-    if (!abi) {
-      return result;
-    }
-    const iface = new Interface(abi);
-    const encoded = method
-      ? iface.encodeFunctionData(method, data).replace('0x', '')
-      : '';
-    const response = await this.mrpc.promiseSendToContract(
-      contract,
-      encoded,
-      value,
-      gasLimit,
-      gasPrice * 1e-8,
-      this.sender,
-      true,
-      changeToSender === true
-    );
-    if (response) {
-      const receipts = await this.getTxReceipts(response, abi, contract);
-      if (receipts.length > 0) {
-        result = {
-          txid: receipts[0].transactionHash,
-          sender: await this.mrpc.promiseFromHexAddress(receipts[0].from),
-          hash160: receipts[0].from
-        };
+    try {
+      if (!abi) {
+        return result;
       }
+      const iface = new Interface(abi);
+      const encoded = method
+        ? iface.encodeFunctionData(method, data).replace('0x', '')
+        : '';
+      const response = await this.mrpc.promiseSendToContract(
+        contract,
+        encoded,
+        value,
+        gasLimit,
+        gasPrice * 1e-8,
+        this.sender,
+        true,
+        changeToSender === true
+      );
+      if (response) {
+        const receipts = await this.getTxReceipts(response, abi, contract);
+        if (receipts.length > 0) {
+          result = {
+            txid: receipts[0].transactionHash,
+            sender: await this.mrpc.promiseFromHexAddress(receipts[0].from),
+            hash160: receipts[0].from
+          };
+        }
+      }
+    } catch (e) {
+      throw new Error(
+        (e as any).message ? (e as any).message : 'An unknown error occurred'
+      );
     }
+
     return result;
   }
 
