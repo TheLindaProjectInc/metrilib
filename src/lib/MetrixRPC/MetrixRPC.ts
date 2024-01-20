@@ -1419,12 +1419,17 @@ abstract class MetrixRPC {
     data: string,
     senderAddress: string,
     gasLimit: string | undefined,
+    fromBlock: number | undefined,
     callback: (e: Error | null, result: any /* eslint-disable-line */) => void
   ): void {  
-    const args = [contrtactAddress, data, senderAddress];
+    const args: any = [contrtactAddress, data, senderAddress];
     if (gasLimit) {
-      args.push(gasLimit);
+      args.push(Number(gasLimit));
+      if(fromBlock) {
+        args.push(fromBlock);
+      }
     }
+
     this.callDaemon('callcontract', JSON.stringify(args), callback);
   }
 
@@ -1432,7 +1437,8 @@ abstract class MetrixRPC {
     contrtactAddress: string,
     data: string,
     senderAddress: string,
-    gasLimit?: string
+    gasLimit?: string,
+    fromBlock?: number
   ): Promise<any> {
     return new Promise<any>(
       (resolve: (result: any) => any, reject: (e: Error) => any): void => {
@@ -1441,6 +1447,7 @@ abstract class MetrixRPC {
           data,
           senderAddress,
           gasLimit,
+          fromBlock,
           (e: Error | null, result: any): void => {
             if (e) reject(e);
             else resolve(result);
