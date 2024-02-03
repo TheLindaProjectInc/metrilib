@@ -11,10 +11,10 @@ export default interface TransactionReceipt {
   contractAddress: string;
   excepted: string;
   exceptedMessage: string;
-  stateRoot: string;
-  utxoRoot: string;
-  createdContracts: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
-  destructedContracts: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  stateRoot?: string;
+  utxoRoot?: string;
+  createdContracts?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  destructedContracts?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   log?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   logs?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   confirmations?: number;

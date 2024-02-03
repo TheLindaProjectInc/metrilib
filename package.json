@@ -1,6 +1,6 @@
 {
   "name": "@metrixcoin/metrilib",
-  "version": "1.5.24-beta",
+  "version": "1.6.0-beta",
   "description": "Library for interacting with MetriVerse",
   "author": "SeqSEE",
   "license": "MIT",
