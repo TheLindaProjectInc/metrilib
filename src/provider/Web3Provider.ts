@@ -4,6 +4,7 @@ import { TransactionReceipt } from '../mrx';
 import { NetworkType } from '../types/NetworkType';
 import { APIEventLogs } from '../mrx/interface/APIEventLogs';
 import { APILog } from '../mrx/interface/APILog';
+import { toHexAddress } from '../utils/AddressUtils';
 
 export default class Web3Provider implements Provider {
   network: NetworkType;
@@ -32,7 +33,28 @@ export default class Web3Provider implements Provider {
       if (response.status === 200) {
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.indexOf('application/json') !== -1) {
-          receipt = JSON.parse(JSON.stringify(await response.json()));
+          const tx = JSON.parse(JSON.stringify(await response.json()));
+          for (const output of tx.outputs || []) {
+            if (output.receipt) {
+              receipt = {
+                confirmations: tx.confirmations,
+                blockHash: tx.blockHash,
+                blockNumber: tx.blockHeight,
+                transactionHash: tx.hash,
+                transactionIndex: 0,
+                to: output.receipt.contractAddress,
+                outputIndex: 1,
+                from: toHexAddress(output.receipt.sender),
+                cumulativeGasUsed: output.receipt.gasUsed,
+                gasUsed: output.receipt.gasUsed,
+                contractAddress: output.receipt.contractAddress,
+                excepted: output.receipt.excepted,
+                exceptedMessage: output.receipt.exceptedMessage,
+                logs: output.receipt.logs ? output.receipt.logs : []
+              };
+              break;
+            }
+          }
         }
       }
     } catch (e) {
