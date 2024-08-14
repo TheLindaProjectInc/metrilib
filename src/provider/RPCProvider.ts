@@ -152,6 +152,7 @@ export default class RPCProvider implements Provider {
       }
     } catch (e) {
       throw new Error(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (e as any).message ? (e as any).message : 'An unknown error occurred'
       );
     }
@@ -198,8 +199,8 @@ export default class RPCProvider implements Provider {
   async searchEventLogs(
     contract: string,
     topics?: string[] | undefined,
-    fromBlock: number | undefined = 0,
-    toBlock: number | undefined = -1
+    fromBlock: number | undefined = 0, // eslint-disable-line @typescript-eslint/no-unused-vars
+    toBlock: number | undefined = -1 // eslint-disable-line @typescript-eslint/no-unused-vars
   ): Promise<RPCEventLogs> {
     throw new Error('Method not implemented.');
   }
