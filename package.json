@@ -33,15 +33,15 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.3.1",
     "@types/node-fetch": "^2.6.1",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
     "assert": "^2.0.0",
-    "eslint": "^8.15.0",
+    "eslint": "^9.9.0",
     "mocha": "^10.0.0",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
     "typedoc": "^0.24.6",
-    "typescript": "5.0.4"
+    "typescript": "5.5.4"
   },
   "dependencies": {
     "bs58": "^5.0.0",
