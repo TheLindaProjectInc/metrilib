@@ -254,8 +254,8 @@ export default class APIProvider implements Provider {
   async searchEventLogs(
     contract: string,
     topics?: string[] | undefined,
-    fromBlock: number | undefined = 0,
-    toBlock: number | undefined = -1
+    fromBlock: number | undefined = 0, // eslint-disable-line @typescript-eslint/no-unused-vars
+    toBlock: number | undefined = -1 // eslint-disable-line @typescript-eslint/no-unused-vars
   ): Promise<APIEventLogs> {
     throw new Error('Method not implemented.');
   }
