@@ -17,7 +17,7 @@ export default class RPCProvider implements Provider {
     this.mrpc = mrpc;
     this.sender = sender;
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   async getTxReceipts(
     tx: { txid: string; sender: string; hash160: string },
     abi: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
