@@ -44,7 +44,7 @@
     "typescript": "5.5.4"
   },
   "dependencies": {
-    "bs58": "^5.0.0",
+    "bs58": "^6.0.0",
     "content-hash": "^2.5.2",
     "ethers": "^6.0.2",
     "locks": "^0.2.2",
