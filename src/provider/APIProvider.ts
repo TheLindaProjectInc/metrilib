@@ -159,14 +159,14 @@ export default class APIProvider implements Provider {
   }
 
   async sendToContract(
-    contract: string, // eslint-disable-line
-    method: string, // eslint-disable-line
-    data: any[], // eslint-disable-line
-    value: string, // eslint-disable-line
-    gasLimit: number, // eslint-disable-line
-    gasPrice: number, // eslint-disable-line
-    abi: any[] // eslint-disable-line
-    // eslint-disable-next-line
+    contract: string, // eslint-disable-line @typescript-eslint/no-unused-vars
+    method: string, // eslint-disable-line @typescript-eslint/no-unused-vars
+    data: any[], // eslint-disable-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+    value: string, // eslint-disable-line @typescript-eslint/no-unused-vars
+    gasLimit: number, // eslint-disable-line @typescript-eslint/no-unused-vars
+    gasPrice: number, // eslint-disable-line @typescript-eslint/no-unused-vars
+    abi: any[] // eslint-disable-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> {
     return undefined;
   }

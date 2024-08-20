@@ -64,10 +64,9 @@ export default class Web3Provider implements Provider {
     return receipt;
   }
 
-  // eslint-disable-next-line
   async getTxReceipts(
     tx: { txid: string; sender: string; hash160: string },
-    abi: any[], // eslint-disable-line
+    abi: any[], // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
     contract?: string // eslint-disable-line @typescript-eslint/no-unused-vars
   ) {
     const receipts: TransactionReceipt[] = [];
